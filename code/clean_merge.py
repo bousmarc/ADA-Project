@@ -22,6 +22,51 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 
 # ---------------------------------------------------------------------------
+# Commune mergers: translate old commune numbers to the 2025 list
+#
+# The files do not use the same list of communes:
+#   population 06.04.2025, typology 01.01.2025, social assistance and jobs
+#   01.01.2024, tax 2022. Communes merged in between. The SFSO list of
+#   mutations (01.01.2022 - 06.04.2025) says which old commune went into which
+#   new one. We use it to move every file onto the population file's list.
+# ---------------------------------------------------------------------------
+mut = pd.read_excel(RAW / "Communes_mutées.xlsx", sheet_name="Données",
+                    header=None, skiprows=2)
+mut = mut[[3, 7]].dropna()
+mut.columns = ["old", "new"]
+mut = mut.astype(int)
+mut = mut[mut["old"] != mut["new"]]          # a commune that keeps its number maps to itself
+
+# Only translate communes that NO LONGER EXIST in 2025. The list also contains
+# small border swaps between two communes that both still exist (e.g. Kloten and
+# Nürensdorf exchanged land in 2024); those are not mergers and are ignored.
+communes_2025 = set(pd.read_csv(RAW / "population_2022.csv", sep=";", skiprows=2,
+                                encoding="utf-8-sig")["Code"])
+mut = mut[~mut["old"].isin(communes_2025)]
+to_new = dict(zip(mut["old"], mut["new"]))
+
+
+def to_2025(code):
+    """Follow the chain of mergers until the commune number no longer changes.
+    (A commune can merge twice, e.g. in 2022 and again in 2024.)"""
+    for _ in range(10):                       # safety limit: never loop forever
+        if code not in to_new:
+            break
+        code = to_new[code]
+    return code
+
+
+def harmonise(df, count_columns):
+    """Put a table on the 2025 commune list.
+    Merged communes become one row; their counts (people, CHF, jobs) are ADDED.
+    Rates must NOT be added: they are recomputed from the counts afterwards."""
+    df = df.copy()
+    df["code"] = df["code"].astype(int).map(to_2025)
+    # min_count=1: if every part of a merged commune is missing, stay missing
+    return df.groupby("code", as_index=False)[count_columns].sum(min_count=1)
+
+
+# ---------------------------------------------------------------------------
 # Helper: the SFSO Map Explorer CSVs all look the same
 #   - 2 title lines on top (skipped)
 #   - separator ";"
@@ -63,6 +108,11 @@ sa = sa.rename(columns={
     "Taux d'aide sociale 2022": "sa_rate",
 })
 sa = sa[["code", "sa_recipients", "sa_rate"]]
+sa["parts"] = 1                       # how many 2024 communes end up in one 2025 commune
+# Move to the 2025 list, adding recipients of merged communes.
+# The official rate is kept where nothing merged; for merged communes it is
+# recomputed later as recipients / population (rates cannot be added).
+sa = harmonise(sa, ["sa_recipients", "sa_rate", "parts"])
 
 
 # ---------------------------------------------------------------------------
@@ -79,6 +129,7 @@ jobs = jobs.rename(columns={
 sectors = ["jobs_primary", "jobs_secondary", "jobs_tertiary"]
 jobs["jobs_total"] = jobs[sectors].fillna(0).sum(axis=1)
 jobs = jobs[["code"] + sectors + ["jobs_total"]]
+jobs = harmonise(jobs, sectors + ["jobs_total"])
 
 
 # ---------------------------------------------------------------------------
@@ -100,6 +151,8 @@ tax_normal = read_tax("dbst_2022_normal.xlsx", "113").rename(columns={"tax": "ta
 tax_special = read_tax("dbst_2022_special.xlsx", "213").rename(columns={"tax": "tax_special"})
 tax = tax_normal.merge(tax_special, on="code", how="outer")
 tax["tax_total"] = tax[["tax_normal", "tax_special"]].fillna(0).sum(axis=1)
+# The tax file uses the 2022 commune list: add up the tax of merged communes.
+tax = harmonise(tax, ["tax_normal", "tax_special", "tax_total"])
 
 
 # ---------------------------------------------------------------------------
@@ -111,7 +164,10 @@ typ = pd.read_excel(RAW / "commune_typology_2025.xlsx", sheet_name="Daten",
 typ = typ[[0, 3, 6, 7, 10]]
 typ.columns = ["code", "canton", "major_region", "urban_rural", "language"]
 typ = typ.dropna(subset=["code"])
-typ["code"] = typ["code"].astype(int)
+typ["code"] = typ["code"].astype(int).map(to_2025)
+# Labels cannot be added up: if communes merged between January and April 2025,
+# keep the label of the first part (they share canton and almost always type).
+typ = typ.drop_duplicates(subset="code", keep="first")
 
 typ["urban_rural"] = typ["urban_rural"].map({1: "urban", 2: "intermediate", 3: "rural"})
 typ["language"] = typ["language"].map({1: "German", 2: "French", 3: "Italian", 4: "Romansh"})
@@ -134,6 +190,9 @@ df = (pop.merge(typ, on="code", how="left")
 # ---------------------------------------------------------------------------
 # 7. New variables
 # ---------------------------------------------------------------------------
+merged = df["parts"] > 1
+df.loc[merged, "sa_rate"] = 100 * df.loc[merged, "sa_recipients"] / df.loc[merged, "population"]
+df = df.drop(columns="parts")
 df["tax_per_capita"] = df["tax_total"] / df["population"]     # CHF per resident
 df["jobs_per_capita"] = df["jobs_total"] / df["population"]   # job-centre indicator
 
@@ -146,6 +205,16 @@ for col in ["foreign_share", "language", "sa_rate", "jobs_total", "tax_total"]:
     n_miss = df[col].isna().sum()
     pop_share = df.loc[df[col].isna(), "population"].sum() / df["population"].sum()
     print(f"Missing {col:<15}: {n_miss:4d} communes  ({pop_share:.1%} of population)")
+
+# ---------------------------------------------------------------------------
+# 9. Checks: stop with an error if something is clearly wrong
+# ---------------------------------------------------------------------------
+assert df["code"].is_unique, "a commune appears twice"
+assert 8.7e6 < df["population"].sum() < 9.0e6, "Swiss population 2022 should be about 8.8 million"
+for col in ["foreign_share", "share_under20", "share_65plus", "sa_rate"]:
+    assert df[col].dropna().between(0, 100).all(), f"{col} outside 0-100 %"
+assert (df["tax_total"].dropna() > 0).all(), "a commune with zero or negative tax"
+print("All checks passed.")
 
 df.to_csv(OUT / "communes_2022.csv", index=False, encoding="utf-8-sig")
 print(f"\nSaved -> {OUT / 'communes_2022.csv'}")
