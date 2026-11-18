@@ -1,2 +1,19 @@
+# --- private / local working files -----------------------------------------
 CLAUDE.md
 .claude/
+sandbox/
+
+# --- data not used by the code ----------------------------------------------
+# STATPOP 2025 permit table (sent by the FSO with the 2022 one; the analysis uses 2022)
+data/raw/STATPOP_2025_*.xlsx
+
+# --- caches, checkpoints, environments, editor settings (Req 4.12) ----------
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+venv/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*.xlsx

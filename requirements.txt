@@ -1,0 +1,12 @@
+# Python 3.12. Install with:  pip install -r requirements.txt
+# Exact versions used to produce the results in the paper.
+pandas==3.0.6
+numpy==2.5.3
+openpyxl==3.1.5        # reading the .xlsx files
+matplotlib==3.11.2
+seaborn==0.13.2
+scikit-learn==1.9.1
+statsmodels==0.15.0
+geopandas==1.2.0       # only for code/01_geo_features.py (reads the swisstopo maps)
+shapely==2.2.0
+pyogrio==0.13.0
