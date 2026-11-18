@@ -1,0 +1,11 @@
+name,canton,urban_rural,population,foreign_share,share_intl,tax_per_capita,filers_per_capita,sa_rate
+Vernier,GE,urban,36572,44.8,2.9,562.01,0.59,10.6
+Biel/Bienne,BE,urban,55070,33.2,0.0,550.29,0.63,9.9
+La Chaux-de-Fonds,NE,urban,36527,30.4,0.01,573.66,0.65,9.8
+Tavannes,BE,rural,3430,25.6,0.0,454.62,0.61,9.7
+Bex,VD,intermediate,8167,32.6,0.01,478.39,0.58,9.4
+Brügg,BE,urban,4456,25.0,0.0,557.21,0.59,9.3
+Nidau,BE,urban,7118,25.8,0.0,625.55,0.62,9.2
+Lucens,VD,rural,4414,38.4,0.0,377.54,0.55,9.1
+Payerne,VD,urban,10342,41.8,0.0,432.53,0.56,9.0
+Kehrsatz,BE,urban,4474,27.8,0.2,995.34,0.54,9.0

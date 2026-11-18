@@ -1,0 +1,5 @@
+sa_status,Population,Foreign residents (% of population),Federal income tax per resident (CHF),Residents aged 65+ (%),Population density (residents per km²),Jobs per resident,Communes,Urban communes (%),Share of Swiss population (%)
+reported,2506.0,17.9,780.3,19.6,261.2,0.4,1625,30.0,95.8
+secret,564.5,11.6,796.3,20.6,91.8,0.3,356,4.8,2.8
+blank,301.0,9.4,748.9,23.2,45.8,0.3,128,1.6,0.6
+partly hidden (merger),4994.5,20.1,794.9,17.5,339.2,0.4,6,33.3,0.7

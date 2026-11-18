@@ -1,0 +1,19 @@
+Group,Variable,N,Mean,SD,Min,Median,Max
+Outcomes,Federal income tax per resident (CHF),2115,1176.4,1389.02,65.45,781.29,23575.4
+Outcomes,Social assistance rate (%),1625,2.04,1.58,0.2,1.6,10.6
+Tax split (mechanisms),Tax filers per resident,2115,0.62,0.08,0.46,0.6,1.57
+Tax split (mechanisms),Taxpayers per filer,2115,0.75,0.05,0.47,0.76,0.94
+Tax split (mechanisms),Federal income tax per taxpayer (CHF),2115,2529.43,2975.97,203.62,1714.81,50714.52
+Tax split (mechanisms),Share of tax paid by incomes > CHF 200k (%),2067,42.61,18.42,0.0,40.14,96.43
+Foreign residents,Foreign residents (% of population),2109,17.77,9.78,0.0,16.2,60.5
+Foreign residents,B permit holders (% of population),2115,5.89,3.8,0.0,5.17,35.63
+Foreign residents,C permit holders (% of population),2115,11.19,6.32,0.0,10.25,36.83
+Foreign residents,L permit holders (% of population),2115,0.21,0.51,0.0,0.08,8.71
+Foreign residents,"Asylum-related permits F, N, S (% of population)",2115,0.29,0.4,0.0,0.15,4.91
+Foreign residents,International officials (% of population),2115,0.14,1.02,0.0,0.0,23.62
+Controls,Population,2115,4168.03,13220.79,29.0,1701.0,427721.0
+Controls,Residents under 20 (%),2113,20.35,3.26,3.2,20.5,33.3
+Controls,Residents aged 65+ (%),2115,20.28,4.52,6.8,19.8,50.0
+Controls,Population density (residents per km²),2115,454.78,817.0,0.8,194.2,12771.9
+Controls,Jobs per resident,2115,0.43,0.31,0.0,0.35,4.45
+Controls,Distance to the national border (km),2115,21.92,17.0,0.11,18.2,68.5
