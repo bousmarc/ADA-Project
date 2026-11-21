@@ -15,8 +15,8 @@ pip install -r requirements.txt
 |---|---|---|---|
 | 1 | `python code/01_geo_features.py` | `data/processed/commune_geo.csv` (position, distance to border) | ~2 min |
 | 2 | `python code/02_clean_merge.py` | `data/processed/communes_2022.csv` (2,115 communes × 51 columns) | < 1 min |
-| 3 | `notebooks/03_descriptive_statistics.ipynb` | tables and figures in `Results/descriptive/` | (to come) |
-| 4 | `notebooks/04_regression_ols.ipynb` | `Results/regressions/` | (to come) |
+| 3 | `notebooks/03_descriptive_stats.ipynb` | tables, figures and LaTeX tables in `Results/descriptive/` | < 1 min |
+| 4 | `notebooks/04_regression_ols.ipynb` | regression tables, figures and LaTeX tables in `Results/regressions/` | ~1 min |
 | 5 | `notebooks/05_machine_learning.ipynb` | `Results/ml/` | (to come) |
 | 6 | `notebooks/06_clustering.ipynb` | `Results/clustering/` | (to come) |
 
