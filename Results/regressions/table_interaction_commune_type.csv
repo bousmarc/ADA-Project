@@ -1,0 +1,5 @@
+,Tax (log),SA rate (pp)
+urban,-0.0153*** (0.0043),0.0630*** (0.0096)
+intermediate,-0.0000 (0.0057),0.0406*** (0.0100)
+rural,0.0150** (0.0059),0.0482*** (0.0159)
+p-value: same slope everywhere,0.0,0.038

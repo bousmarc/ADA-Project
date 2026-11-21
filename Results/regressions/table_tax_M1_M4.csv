@@ -1,0 +1,8 @@
+,M1,M2,M3,M4
+coefficient,0.0199***,0.0138*,0.0094,0.0002
+std. error,(0.0054),(0.0077),(0.0069),(0.0055)
+R²,0.087,0.191,0.211,0.401
+N,2108,2108,2108,2108
+"Size, age, jobs",no,yes,yes,yes
+"Urban type, language",no,no,yes,yes
+Canton fixed effects,no,no,no,yes

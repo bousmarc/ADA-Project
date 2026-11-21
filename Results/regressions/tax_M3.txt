@@ -1,0 +1,35 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                log_tax   R-squared:                       0.211
+Model:                            OLS   Adj. R-squared:                  0.207
+Method:                 Least Squares   F-statistic:                     1051.
+Date:                Sat, 21 Nov 2026   Prob (F-statistic):           1.87e-30
+Time:                        13:11:58   Log-Likelihood:                -1864.3
+No. Observations:                2108   AIC:                             3753.
+Df Residuals:                    2096   BIC:                             3821.
+Df Model:                          11                                         
+Covariance Type:              cluster                                         
+===========================================================================================
+                              coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------------
+Intercept                   6.1085      0.463     13.196      0.000       5.155       7.062
+C(urban_rural)[T.rural]    -0.1209      0.048     -2.538      0.018      -0.219      -0.023
+C(urban_rural)[T.urban]     0.0250      0.036      0.687      0.498      -0.050       0.100
+C(language)[T.German]      -0.2050      0.119     -1.728      0.096      -0.449       0.039
+C(language)[T.Italian]     -0.2267      0.129     -1.762      0.090      -0.492       0.038
+C(language)[T.Romansh]      0.0166      0.144      0.115      0.909      -0.280       0.313
+foreign_share               0.0094      0.007      1.363      0.185      -0.005       0.024
+log_population             -0.0939      0.043     -2.180      0.039      -0.183      -0.005
+log_density                 0.2006      0.035      5.795      0.000       0.129       0.272
+share_under20              -0.0003      0.015     -0.021      0.983      -0.032       0.031
+share_65plus                0.0208      0.009      2.242      0.034       0.002       0.040
+jobs_per_capita            -0.1210      0.071     -1.696      0.102      -0.268       0.026
+==============================================================================
+Omnibus:                      344.028   Durbin-Watson:                   1.410
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              701.535
+Skew:                           0.969   Prob(JB):                    4.61e-153
+Kurtosis:                       5.058   Cond. No.                         651.
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (CRV1)

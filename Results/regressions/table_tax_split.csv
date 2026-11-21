@@ -1,0 +1,5 @@
+,All communes (M4),urban,intermediate,rural
+Filers per resident,0.0001,-0.0008*,0.0002,0.0008
+Taxpayers per filer,-0.0018***,-0.0032***,-0.0024***,-0.0000
+Tax per taxpayer,0.0020,-0.0112**,0.0021,0.0142***
+Total (tax per resident),0.0002,-0.0153***,-0.0000,0.0150**

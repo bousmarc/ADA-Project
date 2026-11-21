@@ -1,0 +1,7 @@
+,Tax (log),SA rate (pp)
+B permit holders (% of population),0.0195 (0.0135),0.0504*** (0.0158)
+C permit holders (% of population),-0.0139 (0.0107),0.0420*** (0.0119)
+L permit holders (% of population),0.0719 (0.0602),-0.2072** (0.0974)
+"Asylum-related permits F, N, S (% of population)",-0.2702*** (0.0661),1.5127*** (0.2768)
+International officials (% of population),0.0638 (0.0643),-0.1251 (0.0933)
+p-value: B = C,0.145,0.699

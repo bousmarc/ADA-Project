@@ -1,0 +1,8 @@
+,Coefficient,t (clustered),"p-value (clustered, t-dist.)",p-value (wild cluster bootstrap)
+SA: foreign share (M4),0.0515,5.0,0.0,0.001
+Tax: foreign share (M4),0.0002,0.04,0.965,0.968
+Tax: squared term,-0.0007,-3.01,0.006,0.019
+Tax: urban slope,-0.0153,-3.58,0.001,0.001
+Tax: rural slope,0.0150,2.53,0.018,0.045
+SA: urban slope,0.0630,6.53,0.0,0.0
+SA: rural slope,0.0482,3.02,0.006,0.027

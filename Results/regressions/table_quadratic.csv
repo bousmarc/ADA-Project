@@ -1,0 +1,7 @@
+,Tax (log),SA rate (pp)
+foreign share,0.0329**,0.0691*
+foreign share²,-0.000690***,-0.000353
+turning point (%),23.8,98.0
+joint p-value,0.013,0.0
+R²,0.417,0.418
+N,2108,1625

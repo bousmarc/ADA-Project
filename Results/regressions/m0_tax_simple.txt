@@ -1,0 +1,25 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                log_tax   R-squared:                       0.087
+Model:                            OLS   Adj. R-squared:                  0.086
+Method:                 Least Squares   F-statistic:                     200.4
+Date:                Sat, 21 Nov 2026   Prob (F-statistic):           1.57e-43
+Time:                        13:11:58   Log-Likelihood:                -2018.6
+No. Observations:                2108   AIC:                             4041.
+Df Residuals:                    2106   BIC:                             4053.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept         6.4336      0.029    225.654      0.000       6.378       6.489
+foreign_share     0.0199      0.001     14.157      0.000       0.017       0.023
+==============================================================================
+Omnibus:                      276.779   Durbin-Watson:                   1.391
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              474.894
+Skew:                           0.866   Prob(JB):                    7.55e-104
+Kurtosis:                       4.551   Cond. No.                         42.2
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

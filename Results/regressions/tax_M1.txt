@@ -1,0 +1,25 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                log_tax   R-squared:                       0.087
+Model:                            OLS   Adj. R-squared:                  0.086
+Method:                 Least Squares   F-statistic:                     13.79
+Date:                Sat, 21 Nov 2026   Prob (F-statistic):            0.00103
+Time:                        13:11:58   Log-Likelihood:                -2018.6
+No. Observations:                2108   AIC:                             4041.
+Df Residuals:                    2106   BIC:                             4053.
+Df Model:                           1                                         
+Covariance Type:              cluster                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept         6.4336      0.116     55.638      0.000       6.195       6.672
+foreign_share     0.0199      0.005      3.713      0.001       0.009       0.031
+==============================================================================
+Omnibus:                      276.779   Durbin-Watson:                   1.391
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              474.894
+Skew:                           0.866   Prob(JB):                    7.55e-104
+Kurtosis:                       4.551   Cond. No.                         42.2
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (CRV1)

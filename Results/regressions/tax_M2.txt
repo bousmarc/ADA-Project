@@ -1,0 +1,30 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                log_tax   R-squared:                       0.191
+Model:                            OLS   Adj. R-squared:                  0.189
+Method:                 Least Squares   F-statistic:                     26.22
+Date:                Sat, 21 Nov 2026   Prob (F-statistic):           1.22e-09
+Time:                        13:11:58   Log-Likelihood:                -1890.6
+No. Observations:                2108   AIC:                             3795.
+Df Residuals:                    2101   BIC:                             3835.
+Df Model:                           6                                         
+Covariance Type:              cluster                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+Intercept           5.5295      0.441     12.540      0.000       4.621       6.438
+foreign_share       0.0138      0.008      1.790      0.085      -0.002       0.030
+log_population     -0.0958      0.053     -1.818      0.081      -0.204       0.013
+log_density         0.2058      0.037      5.628      0.000       0.130       0.281
+share_under20       0.0120      0.018      0.664      0.513      -0.025       0.049
+share_65plus        0.0225      0.009      2.459      0.021       0.004       0.041
+jobs_per_capita    -0.1128      0.065     -1.734      0.095      -0.247       0.021
+==============================================================================
+Omnibus:                      344.285   Durbin-Watson:                   1.421
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              706.658
+Skew:                           0.967   Prob(JB):                    3.56e-154
+Kurtosis:                       5.076   Cond. No.                         583.
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (CRV1)
