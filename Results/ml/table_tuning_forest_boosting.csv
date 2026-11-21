@@ -1,0 +1,5 @@
+,,min_samples_leaf,learning_rate,max_depth
+Random forest,Tax (log),1.0,,
+Gradient boosting,Tax (log),,0.03,5.0
+Random forest,SA rate (pp),5.0,,
+Gradient boosting,SA rate (pp),,0.03,3.0

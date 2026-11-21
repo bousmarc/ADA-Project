@@ -1,0 +1,12 @@
+outcome,Tax (log),Tax (log),SA rate (pp),SA rate (pp)
+scheme,random folds,canton folds,random folds,canton folds
+model,,,,
+Mean only (no features),-0.0,-0.105,-0.003,-0.033
+OLS,0.197,0.101,0.22,0.103
+Decision tree,0.176,0.044,0.123,-0.034
+Random forest,0.345,0.204,0.284,0.136
+Gradient boosting,0.327,0.195,0.279,0.119
+Gaussian process,0.364,0.212,0.333,0.141
+Neural network,0.272,0.025,0.277,0.139
+OLS + curves (notebook 04),0.232,0.145,0.232,0.121
+Random forest + location,0.56,0.376,0.469,0.198

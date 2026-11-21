@@ -1,0 +1,17 @@
+\begin{tabular}{lrrrr}
+\toprule
+outcome & \multicolumn{2}{r}{Tax (log)} & \multicolumn{2}{r}{SA rate (pp)} \\
+scheme & random folds & canton folds & random folds & canton folds \\
+model &  &  &  &  \\
+\midrule
+Mean only (no features) & 0.660 & 0.693 & 1.585 & 1.608 \\
+OLS & 0.591 & 0.626 & 1.398 & 1.499 \\
+Decision tree & 0.599 & 0.645 & 1.482 & 1.610 \\
+Random forest & 0.534 & 0.589 & 1.339 & 1.471 \\
+Gradient boosting & 0.541 & 0.592 & 1.344 & 1.485 \\
+Gaussian process & 0.526 & 0.586 & 1.292 & 1.467 \\
+Neural network & 0.563 & 0.651 & 1.346 & 1.468 \\
+OLS + curves (notebook 04) & 0.578 & 0.610 & 1.387 & 1.484 \\
+Random forest + location & 0.437 & 0.521 & 1.153 & 1.417 \\
+\bottomrule
+\end{tabular}
