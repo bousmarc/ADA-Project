@@ -9,6 +9,7 @@ Contents
   2. Reading raw files    check_header(), read_map_explorer(), to_numbers()
   3. Commune mergers      communes_2025(), merger_map(), to_2025(), harmonise()
   4. Plot style           COLORS, LABELS, SEQUENTIAL, DIVERGING, save_figure()
+  5. Model data           MODEL_VARIABLES, load_model_samples(), stars()
 
 How to import it
   - from a script in code/:          import helpers
@@ -184,3 +185,35 @@ def save_figure(fig, path):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path, dpi=300, bbox_inches="tight")
+
+
+# ---------------------------------------------------------------------------
+# 5. Model data (notebooks 04 and 05)
+# ---------------------------------------------------------------------------
+# Explanatory variables of the main model (M4 in notebook 04). A commune
+# missing any of them is left out, so every model uses the same communes.
+MODEL_VARIABLES = ["foreign_share", "log_population", "log_density", "share_under20",
+                   "share_65plus", "jobs_per_capita", "urban_rural", "language", "canton"]
+
+
+def load_model_samples():
+    """Load the commune data, add the log variables, and return the two samples.
+
+    Returns (df, tax_sample, sa_sample):
+      df          all 2,115 communes, with log_tax, log_population, log_density added
+      tax_sample  communes with log tax and every model variable
+      sa_sample   the same, but only where the social assistance rate is reported
+    """
+    df = pd.read_csv(PROCESSED / "communes_2022.csv", encoding="utf-8-sig")
+    # Logs: tax is very skewed; population and density range from villages to Zurich
+    df["log_tax"] = np.log(df["tax_per_capita"])
+    df["log_population"] = np.log(df["population"])
+    df["log_density"] = np.log(df["density"])
+    tax_sample = df.dropna(subset=["log_tax"] + MODEL_VARIABLES).copy()
+    sa_sample = df.dropna(subset=["sa_rate"] + MODEL_VARIABLES).copy()
+    return df, tax_sample, sa_sample
+
+
+def stars(p):
+    """Significance stars: *** p<0.01, ** p<0.05, * p<0.1."""
+    return "***" if p < 0.01 else "**" if p < 0.05 else "*" if p < 0.1 else ""
