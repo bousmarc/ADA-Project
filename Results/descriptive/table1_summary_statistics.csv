@@ -11,9 +11,12 @@ Foreign residents,C permit holders (% of population),2115,11.19,6.32,0.0,10.25,3
 Foreign residents,L permit holders (% of population),2115,0.21,0.51,0.0,0.08,8.71
 Foreign residents,"Asylum-related permits F, N, S (% of population)",2115,0.29,0.4,0.0,0.15,4.91
 Foreign residents,International officials (% of population),2115,0.14,1.02,0.0,0.0,23.62
+Foreign residents,German nationals (% of foreign residents),1939,22.14,17.78,0.0,20.2,100.0
+Foreign residents,French nationals (% of foreign residents),1716,10.41,14.51,0.0,1.9,92.3
 Controls,Population,2115,4168.03,13220.79,29.0,1701.0,427721.0
 Controls,Residents under 20 (%),2113,20.35,3.26,3.2,20.5,33.3
 Controls,Residents aged 65+ (%),2115,20.28,4.52,6.8,19.8,50.0
 Controls,Population density (residents per km²),2115,454.78,817.0,0.8,194.2,12771.9
 Controls,Jobs per resident,2115,0.43,0.31,0.0,0.35,4.45
 Controls,Distance to the national border (km),2115,21.92,17.0,0.11,18.2,68.5
+Controls,Residents of single-family houses (%),2115,39.16,15.08,0.0,39.4,89.7

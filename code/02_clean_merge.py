@@ -6,7 +6,7 @@ table with one row per Swiss commune (data for 2022, commune list of 6 April 202
 
 Input  : data/raw/ (SFSO, ESTV, FSO permit table) and data/processed/commune_geo.csv
          (from code/01_geo_features.py, which must run first)
-Output : data/processed/communes_2022.csv   (2,115 communes x 51 columns)
+Output : data/processed/communes_2022.csv   (2,115 communes x 56 columns)
 
 Main decisions (details in the comments of each section and in the paper):
   - Every file is moved to the 2025 commune list with the SFSO mutation register;
@@ -21,6 +21,8 @@ Main decisions (details in the comments of each section and in the paper):
     are OUTCOMES or descriptions, never predictors (built from the outcome).
   - Foreign residents by permit (B, C, L, asylum F+N+S, international officials)
     from a STATPOP table sent by the FSO on request.
+  - German and French nationals (% of foreign residents) and residents of
+    single-family houses (% of residents), from the SFSO Map Explorer.
   - Many asserts stop the script if a file changes layout or a check fails.
 
 Run from the repository folder:   python code/02_clean_merge.py   (under a minute)
@@ -295,6 +297,28 @@ assert set(geo["code"]) == communes_2025, "commune_geo.csv does not match the 20
 
 
 # ---------------------------------------------------------------------------
+# 5c. Nationality and housing  (SFSO Map Explorer, 2025 commune list)
+#     Despite their names, both files contain PERCENTAGES:
+#       - German / French nationals, in % of the commune's FOREIGN residents
+#         ("secret" for small numbers; "division par 0" where there are no foreigners)
+#       - residents living in single-family houses, in % of all residents
+# ---------------------------------------------------------------------------
+nat = read_map_explorer("nationality_2022.csv")
+nat = nat.rename(columns={
+    "Population de nationalité allemande 2022": "german_share_foreign",
+    "Population de nationalité française 2022": "french_share_foreign",
+})
+nat_numbers = ["german_share_foreign", "french_share_foreign"]
+nat = to_numbers(nat[["code"] + nat_numbers], nat_numbers)
+assert set(nat["code"]) == communes_2025, "nationality file does not match the 2025 list"
+
+house = read_map_explorer("housing_residents_2022.csv")
+house = house.rename(columns={"Habitants dans des maisons individuelles 2022": "share_single_family"})
+house = to_numbers(house[["code", "share_single_family"]], ["share_single_family"])
+assert set(house["code"]) == communes_2025, "housing file does not match the 2025 list"
+
+
+# ---------------------------------------------------------------------------
 # 6. Merge everything on the commune number, starting from the population list.
 #    Thanks to the checks in harmonise(), every file covers exactly this list.
 # ---------------------------------------------------------------------------
@@ -304,7 +328,9 @@ df = (pop.merge(typ, on="code", how="left")
          .merge(tax, on="code", how="left")
          .merge(perm, on="code", how="left")
          .merge(geo, on="code", how="left")
-         .merge(key, on="code", how="left"))
+         .merge(key, on="code", how="left")
+         .merge(nat, on="code", how="left")
+         .merge(house, on="code", how="left"))
 
 
 # ---------------------------------------------------------------------------
@@ -357,6 +383,12 @@ for group in ["permit_B", "permit_C", "permit_L", "permit_asylum", "permit_intl"
 df["filers_per_capita"] = df["filers"] / df["population"]
 df["payers_per_filer"] = df["taxpayers"] / df["filers"]
 
+# German + French nationals ("neighbour-country" nationals): a proxy for high-skilled
+# EU immigration. In % of foreign residents, and in % of all residents (like the
+# permit shares). Missing if either nationality is hidden.
+df["neighbour_share_foreign"] = df["german_share_foreign"] + df["french_share_foreign"]
+df["neighbour_share_pop"] = df["neighbour_share_foreign"] * df["foreign_share"] / 100
+
 
 # ---------------------------------------------------------------------------
 # 9. Report: what is missing  (goes into the paper's data section)
@@ -395,8 +427,11 @@ print(f"\nKey figures vs income-class sheets: taxpayers higher in {(gap_payers >
 assert df["code"].is_unique, "a commune appears twice"
 assert len(df) == len(communes_2025), "commune count changed during the merge"
 assert 8.7e6 < df["population"].sum() < 9.0e6, "Swiss population 2022 should be about 8.8 million"
-for col in ["foreign_share", "share_under20", "share_65plus", "sa_rate"]:
+for col in ["foreign_share", "share_under20", "share_65plus", "sa_rate",
+            "german_share_foreign", "french_share_foreign", "share_single_family"]:
     assert df[col].dropna().between(0, 100).all(), f"{col} outside 0-100 %"
+# German + French cannot exceed all foreigners (shares are rounded to 0.1)
+assert (df["neighbour_share_foreign"].dropna() <= 100.2).all(), "German + French above 100 % of foreigners"
 assert df["tax_total"].notna().all(), "a commune without tax data"
 assert (df["tax_total"] > 0).all(), "a commune with zero or negative tax"
 # foreign_share should equal foreigners / population (up to rounding to 0.1)

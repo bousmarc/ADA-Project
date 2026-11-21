@@ -14,20 +14,22 @@ pip install -r requirements.txt
 | Step | File | Produces | Time |
 |---|---|---|---|
 | 1 | `python code/01_geo_features.py` | `data/processed/commune_geo.csv` (position, distance to border) | ~2 min |
-| 2 | `python code/02_clean_merge.py` | `data/processed/communes_2022.csv` (2,115 communes × 51 columns) | < 1 min |
+| 2 | `python code/02_clean_merge.py` | `data/processed/communes_2022.csv` (2,115 communes × 56 columns) | < 1 min |
 | 3 | `notebooks/03_descriptive_stats.ipynb` | tables, figures and LaTeX tables in `Results/descriptive/` | < 1 min |
 | 4 | `notebooks/04_regression_ols.ipynb` | regression tables, figures and LaTeX tables in `Results/regressions/` | ~1 min |
-| 5 | `notebooks/05_machine_learning.ipynb` | `Results/ml/` | (to come) |
+| 5 | `notebooks/05_machine_learning.ipynb` | model comparison, figures and LaTeX tables in `Results/ml/` | ~12 min |
 | 6 | `notebooks/06_clustering.ipynb` | `Results/clustering/` | (to come) |
 
 Each stage reads only what the previous one saved. Notebooks run top to bottom from a fresh kernel. `Results/` is created by the code; `figures/` holds the figures used in the paper. Shared functions are in `code/helpers.py`. Hardware: a standard laptop / Nuvolos; no GPU.
 
 ## Data
-All data refer to 2022, at commune level, on the commune list of 6 April 2025.
+The main data refer to 2022, at commune level, on the commune list of 6 April 2025. Files for 2023–2025 are used only for an out-of-time test of the 2022 results.
 
 | File in `data/raw/` | Source | Licence / use |
 |---|---|---|
-| `population_2022.csv`, `social_assistance_2022.csv`, `jobs_2022.csv` | Swiss Federal Statistical Office (FSO), Map Explorer / Statistical Atlas | OPEN-BY-ASK: non-commercial use, source must be cited |
+| `population_2022.csv`, `social_assistance_2022.csv`, `jobs_2022.csv`, `nationality_2022.csv` (German and French nationals, % of foreign residents), `housing_residents_2022.csv` (residents of single-family houses, %) | Swiss Federal Statistical Office (FSO), Map Explorer / Statistical Atlas | OPEN-BY-ASK: non-commercial use, source must be cited |
+| `social_assistance_2023.csv`, `_2024.csv`, `_2025.csv`, `population_2023.csv` (out-of-time test); `social_assistance_2022_check.csv` (2022 re-downloaded in 2026, to check for revisions) | FSO, Map Explorer | OPEN-BY-ASK: non-commercial use, source must be cited |
+| `statistik-dbst-np-mit-belastung-2023.xlsx`, `statistik-dbst-np-mit-und-ohne-belastung-2023.xlsx` (out-of-time test) | ESTV, federal direct tax, key figures for individuals, tax period 2023 (published 5 November 2026) | reproduction allowed with source ("© ESTV") |
 | `statistik-dbst-np-kennzahlen-mit-2022.xlsx`, `statistik-dbst-np-kennzahlen-ohne-2022.xlsx` | Federal Tax Administration (ESTV), federal direct tax, key figures for individuals, tax period 2022 (payers only / all filers): main source for tax and taxpayers | reproduction allowed with source ("© ESTV") |
 | `dbst_2022_normal.xlsx`, `dbst_2022_special.xlsx` | ESTV, federal direct tax by income class, tax period 2022: share of tax paid by incomes above CHF 200k | reproduction allowed with source ("© ESTV") |
 | `commune_typology_2025.xlsx` | FSO, spatial classifications (Raumgliederungen) | FSO terms of use, source must be cited |

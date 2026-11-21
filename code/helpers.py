@@ -177,6 +177,11 @@ LABELS = {
     "border_km": "Distance to the national border (km)",
     "urban_rural": "Urban/rural type",
     "language": "Language region",
+    "german_share_foreign": "German nationals (% of foreign residents)",
+    "french_share_foreign": "French nationals (% of foreign residents)",
+    "neighbour_share_foreign": "German + French nationals (% of foreign residents)",
+    "neighbour_share_pop": "German + French nationals (% of population)",
+    "share_single_family": "Residents of single-family houses (%)",
 }
 
 
