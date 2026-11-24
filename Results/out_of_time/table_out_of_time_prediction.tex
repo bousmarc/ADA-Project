@@ -1,0 +1,25 @@
+\begin{tabular}{llrr}
+\toprule
+ &  & R², same year (2022) & R², later year \\
+outcome & model &  &  \\
+\midrule
+\multirow[t]{5}{*}{Tax (log), 2023} & OLS & 0.101 & 0.094 \\
+ & Random forest & 0.206 & 0.202 \\
+ & Gradient boosting & 0.207 & 0.199 \\
+ & Gaussian process & 0.212 & 0.201 \\
+ & Reference: own 2022 value &  & 0.955 \\
+\cline{1-4}
+\multirow[t]{5}{*}{SA rate, 2023} & OLS & 0.098 & 0.101 \\
+ & Random forest & 0.134 & 0.135 \\
+ & Gradient boosting & 0.096 & 0.097 \\
+ & Gaussian process & 0.130 & 0.137 \\
+ & Reference: own 2022 value &  & 0.923 \\
+\cline{1-4}
+\multirow[t]{5}{*}{SA rate, 2024} & OLS & 0.111 & 0.119 \\
+ & Random forest & 0.139 & 0.145 \\
+ & Gradient boosting & 0.092 & 0.103 \\
+ & Gaussian process & 0.135 & 0.126 \\
+ & Reference: own 2022 value &  & 0.855 \\
+\cline{1-4}
+\bottomrule
+\end{tabular}

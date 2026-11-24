@@ -1,0 +1,16 @@
+outcome,model,"R², same year (2022)","R², later year"
+"Tax (log), 2023",OLS,0.101,0.094
+"Tax (log), 2023",Random forest,0.206,0.202
+"Tax (log), 2023",Gradient boosting,0.207,0.199
+"Tax (log), 2023",Gaussian process,0.212,0.201
+"Tax (log), 2023",Reference: own 2022 value,,0.955
+"SA rate, 2023",OLS,0.098,0.101
+"SA rate, 2023",Random forest,0.134,0.135
+"SA rate, 2023",Gradient boosting,0.096,0.097
+"SA rate, 2023",Gaussian process,0.13,0.137
+"SA rate, 2023",Reference: own 2022 value,,0.923
+"SA rate, 2024",OLS,0.111,0.119
+"SA rate, 2024",Random forest,0.139,0.145
+"SA rate, 2024",Gradient boosting,0.092,0.103
+"SA rate, 2024",Gaussian process,0.135,0.126
+"SA rate, 2024",Reference: own 2022 value,,0.855
