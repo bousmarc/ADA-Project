@@ -11,7 +11,7 @@ pip install -r requirements.txt
 ```
 
 ## Run
-Everything, from the raw data to every table and figure, with one command from the repository folder (about 1 hour; about 20 minutes without notebook 05b, which can be switched off at the top of `run_all.py`):
+Everything, from the raw data to every table and figure, with one command from the repository folder (about 30 minutes on a laptop; about 15 minutes without notebook 05b, which can be switched off at the top of `run_all.py`):
 ```bash
 python run_all.py
 ```
@@ -24,8 +24,8 @@ It runs the steps below in this order; each notebook is run from top to bottom i
 | 2b | `python code/02b_later_years.py` | `data/processed/outcomes_later_years.csv` (tax 2023, social assistance 2023–2024, for the out-of-time test) | a few seconds |
 | 3 | `notebooks/03_descriptive_stats.ipynb` | tables, figures and LaTeX tables in `Results/descriptive/` | < 1 min |
 | 4 | `notebooks/04_regression_ols.ipynb` | regression tables, figures and LaTeX tables in `Results/regressions/` | ~1 min |
-| 5 | `notebooks/05_machine_learning.ipynb` | model comparison, figures and LaTeX tables in `Results/ml/` | ~12 min |
-| 5b | `notebooks/05b_tuning.ipynb` | every tuning option tried (number of trees, full grids, narrow vs wide search, canton-fold tuning) in `Results/tuning/` | ~35 min |
+| 5 | `notebooks/05_machine_learning.ipynb` | model comparison, figures and LaTeX tables in `Results/ml/` | ~10 min |
+| 5b | `notebooks/05b_tuning.ipynb` | every tuning option tried (number of trees, full grids, narrow vs wide search, canton-fold tuning) in `Results/tuning/` | ~15 min |
 | 6 | `notebooks/06_clustering.ipynb` | PCA, commune types, figures and LaTeX tables in `Results/clustering/` | < 1 min |
 | 7 | `notebooks/07_later_years.ipynb` | out-of-time test of the 2022 results in `Results/out_of_time/` | ~2 min |
 

@@ -3,7 +3,7 @@ run_all.py
 ----------
 Runs the whole project, from the raw data to every table and figure in Results/.
 
-Run from the repository folder:   python run_all.py     (about 1 hour in total; about 20
+Run from the repository folder:   python run_all.py     (about 30 minutes in total; about 15
                                                          minutes without notebook 05b)
 
 Steps (in this order, because each one reads what the previous ones saved):
@@ -34,8 +34,8 @@ RUN_NOTEBOOKS = True    # step 3
 NOTEBOOKS = [           # remove a notebook from this list to skip it
     "03_descriptive_stats.ipynb",
     "04_regression_ols.ipynb",
-    "05_machine_learning.ipynb",       # about 15 minutes
-    "05b_tuning.ipynb",                # about 35 minutes: every tuning option tried (documents notebook 05's choices)
+    "05_machine_learning.ipynb",       # about 10 minutes
+    "05b_tuning.ipynb",                # about 15 minutes: every tuning option tried (documents notebook 05's choices)
     "06_clustering.ipynb",
     "07_later_years.ipynb",
 ]
