@@ -1,0 +1,19 @@
+k,type (1 = least urban),communes,urban (%),foreign share (median),"intl officials (% pop., mean)",largest communes,tax slope,SA slope
+3,1,316,2,11.850000000000001,0.01,"Glarus Süd, Nendaz, Ilanz/Glion",0.0345***,0.0108
+3,2,1017,7,12.2,0.11,"Fully, Savièse, Schwarzenburg",0.0241**,0.0217
+3,3,782,55,25.1,0.23,"Zürich, Genève, Basel",-0.0110**,0.0573***
+4,1,612,4,10.8,0.18,"Troistorrents, Hautemorges, Reichenbach im Kandertal",0.0371***,0.0093
+4,2,277,2,12.0,0.01,"Ilanz/Glion, Sigriswil, Scuol",0.0351***,0.0044
+4,3,754,18,16.1,0.01,"Val-de-Ruz, Einsiedeln, Blonay - Saint-Légier",-0.0020,0.0444***
+4,4,472,73,28.9,0.37,"Zürich, Genève, Basel",-0.0118**,0.0437***
+5,1,404,3,8.9,0.01,"Savièse, Vechigen, Ayent",0.0254***,0.0767***
+5,2,451,6,13.9,0.34,"Gurmels, Hautemorges, Belmont-sur-Lausanne",0.0300***,-0.0127
+5,3,147,5,16.3,0.0,"Davos, Val de Bagnes, Crans-Montana",0.0342***,0.0100
+5,4,673,20,16.6,0.01,"Val-de-Ruz, Einsiedeln, Steffisburg",-0.0054,0.0537***
+5,5,440,75,29.15,0.3,"Zürich, Genève, Basel",-0.0198***,0.0549***
+6,1,365,4,9.0,0.01,"Savièse, Vechigen, Sigriswil",0.0219***,0.0752**
+6,2,460,3,12.5,0.06,"Gurmels, Hautemorges, Attalens",0.0278**,0.0140
+6,3,140,5,17.35,0.0,"Davos, Val de Bagnes, Crans-Montana",0.0345***,0.0073
+6,4,673,19,16.7,0.01,"Val-de-Ruz, Einsiedeln, Blonay - Saint-Légier",-0.0026,0.0465***
+6,5,49,65,34.5,4.71,"Genève, Vernier, Lancy",-0.0502***,0.1162***
+6,6,428,73,28.35,0.06,"Zürich, Basel, Lausanne",-0.0177***,0.0549***

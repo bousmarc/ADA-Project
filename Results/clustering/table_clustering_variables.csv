@@ -1,0 +1,14 @@
+,Variable,Hidden values imputed,Skewness (raw),Skewness (used)
+log_population,Population (log),0,0.07,0.07
+log_density,Density (log),0,-0.38,-0.38
+share_under20,Under 20 (%),2,-0.59,-0.59
+share_65plus,Aged 65+ (%),0,0.94,0.94
+jobs_per_capita,Jobs per resident,0,4.11,1.93
+industry_share_jobs,Jobs in industry (%),65,0.83,0.83
+agriculture_share_jobs,Jobs in agriculture (%),48,1.7,1.7
+share_single_family,Residents of single-family houses (%),0,0.02,0.02
+foreign_share,Foreign residents (%),6,0.83,0.83
+neighbour_share_foreign,German + French (% of foreigners),566,0.92,0.92
+share_L,"L permits, short stays (% of pop.)",0,8.17,3.38
+share_asylum,Asylum-related permits (% of pop.),0,2.9,1.4
+share_intl,International officials (% of pop.),0,12.6,6.9

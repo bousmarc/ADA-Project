@@ -226,6 +226,8 @@ LABELS = {
     "neighbour_share_foreign": "German + French nationals (% of foreign residents)",
     "neighbour_share_pop": "German + French nationals (% of population)",
     "share_single_family": "Residents of single-family houses (%)",
+    "tax_burden_100k": "Income tax burden at CHF 100k, single (%)",
+    "tax_burden_200k": "Income tax burden at CHF 200k, single (%)",
 }
 
 
