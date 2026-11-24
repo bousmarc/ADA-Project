@@ -5,11 +5,12 @@ Shared code for every stage of the project (Requirement 4.9: code used more
 than once is imported from here, never copied).
 
 Contents
-  1. Paths and settings   ROOT, RAW, PROCESSED, FIGURES, results_dir(), SEED
-  2. Reading raw files    check_header(), read_map_explorer(), to_numbers()
+  1. Paths and settings   ROOT, RAW, PROCESSED, results_dir(), SEED
+  2. Reading raw files    check_header(), read_map_explorer(), to_numbers(), read_key_figures()
   3. Commune mergers      communes_2025(), merger_map(), to_2025(), harmonise()
   4. Plot style           COLORS, LABELS, SEQUENTIAL, DIVERGING, save_figure()
-  5. Model data           MODEL_VARIABLES, load_model_samples(), stars()
+  5. Model data           MODEL_VARIABLES, load_model_samples(), stars(), M4_CONTROLS,
+                          M4_OTHER_CONTROLS, fit_clustered(), coef_with_stars(), ml_features()
 
 How to import it
   - from a script in code/:          import helpers
@@ -32,7 +33,6 @@ from matplotlib.colors import LinearSegmentedColormap
 ROOT = Path(__file__).resolve().parents[1]      # the ada-project folder
 RAW = ROOT / "data" / "raw"                     # original downloads, never edited
 PROCESSED = ROOT / "data" / "processed"         # outputs of the data stages
-FIGURES = ROOT / "figures"                      # figures used in the paper
 SEED = 42                                       # random_state everywhere
 
 MUTATIONS_FILE = "commune_mutations_2022_2025.xlsx"   # SFSO mutation register
@@ -72,6 +72,23 @@ def to_numbers(df, columns):
     for col in columns:
         df[col] = pd.to_numeric(df[col], errors="coerce")
     return df
+
+
+def read_key_figures(filename):
+    """Read an ESTV key-figures file for individuals (federal direct tax), sheet
+    'Gemeinden - Communes': one row per commune for all households ("T").
+    Used for 2022 (02_clean_merge.py) and 2023 (02b_later_years.py)."""
+    df = pd.read_excel(RAW / filename, sheet_name="Gemeinden - Communes", header=None)
+    for col, text in [(2, "Gemeindenummer"), (4, "Einheit ID"), (6, "stpf"), (7, "snpstbetr"),
+                      (12, "median_steink"), (13, "gini_steink")]:
+        check_header(df.iloc[0], col, text)
+    df = df.iloc[1:]
+    df = df[df[4] == "T"]                          # T = all households (not married / single)
+    return pd.DataFrame({"code": df[2].astype(int),
+                         "n": pd.to_numeric(df[6]),             # stpf: number of taxpayers
+                         "tax": pd.to_numeric(df[7]),           # snpstbetr: federal tax, CHF
+                         "median": pd.to_numeric(df[12]),       # median taxable income, CHF
+                         "gini": pd.to_numeric(df[13])})        # Gini of taxable income
 
 
 # ---------------------------------------------------------------------------
@@ -156,6 +173,33 @@ DIVERGING = LinearSegmentedColormap.from_list(
     "div_blue_red", ["#1c5cab", "#86b6ef", "#f0efec", "#ef9a99", "#e34948"])
 INK = {"primary": "#0b0b0b", "secondary": "#52514e", "grid": "#e1e0d9"}
 
+
+def set_style():
+    """Figure style of the whole project: a serif font like the LaTeX text of the paper,
+    no top/right frame, bold titles on the left, grey axes. Grid lines are added figure by
+    figure (ax.grid), so that heatmaps and maps stay without them."""
+    import matplotlib as mpl
+    mpl.rcParams.update({
+        "font.family": "serif",
+        "font.serif": ["DejaVu Serif"],             # shipped with matplotlib: works everywhere
+        "mathtext.fontset": "dejavuserif",
+        "axes.spines.top": False,
+        "axes.spines.right": False,
+        "axes.edgecolor": INK["secondary"],
+        "axes.labelcolor": INK["primary"],
+        "axes.titleweight": "bold",
+        "axes.titlelocation": "left",
+        "xtick.color": INK["secondary"],
+        "ytick.color": INK["secondary"],
+        "grid.color": INK["grid"],
+        "grid.linewidth": 0.6,
+        "legend.frameon": False,
+    })
+
+
+# Applied as soon as helpers is imported, so every script and notebook uses the same style
+set_style()
+
 # Readable axis titles: never show raw column names in a figure
 LABELS = {
     "population": "Population",
@@ -222,3 +266,39 @@ def load_model_samples():
 def stars(p):
     """Significance stars: *** p<0.01, ** p<0.05, * p<0.1."""
     return "***" if p < 0.01 else "**" if p < 0.05 else "*" if p < 0.1 else ""
+
+
+# Right-hand side of the main model M4 (notebook 04): foreign share, size, density, age,
+# jobs, commune type, language region and canton fixed effects (notebooks 04, 06, 07)
+M4_CONTROLS = ("foreign_share + log_population + log_density + share_under20 + share_65plus"
+               " + jobs_per_capita + C(urban_rural) + C(language) + C(canton)")
+M4_OTHER_CONTROLS = M4_CONTROLS.replace("foreign_share + ", "")   # without foreign share
+
+
+def fit_clustered(formula, data, weighted=False):
+    """OLS (or population-weighted least squares) with standard errors clustered by
+    canton and t-based p-values (26 clusters). Notebooks 04, 06, 07."""
+    import statsmodels.formula.api as smf
+    groups = pd.factorize(data["canton"])[0]
+    if weighted:
+        model = smf.wls(formula, data=data, weights=data["population"])
+    else:
+        model = smf.ols(formula, data=data)
+    return model.fit(cov_type="cluster", cov_kwds={"groups": groups}, use_t=True)
+
+
+def coef_with_stars(model, name):
+    """A coefficient with its significance stars, e.g. '0.0515***'."""
+    return f"{model.params[name]:.4f}{stars(model.pvalues[name])}"
+
+
+ML_NUMERIC = ["foreign_share", "log_population", "log_density", "share_under20",
+              "share_65plus", "jobs_per_capita"]
+
+
+def ml_features(data):
+    """Features of the machine-learning models (notebooks 05 and 07): the numeric
+    model variables plus 0/1 dummies for commune type and language region. No canton
+    dummies: a model cannot use a canton dummy to predict a canton it has never seen."""
+    dummies = pd.get_dummies(data[["urban_rural", "language"]], drop_first=True, dtype=float)
+    return pd.concat([data[ML_NUMERIC], dummies], axis=1)
