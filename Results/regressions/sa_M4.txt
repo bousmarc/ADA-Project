@@ -3,8 +3,8 @@
 Dep. Variable:                sa_rate   R-squared:                       0.417
 Model:                            OLS   Adj. R-squared:                  0.404
 Method:                 Least Squares   F-statistic:                     117.8
-Date:                Sat, 21 Nov 2026   Prob (F-statistic):           3.30e-18
-Time:                        13:11:58   Log-Likelihood:                -2613.0
+Date:                Tue, 24 Nov 2026   Prob (F-statistic):           3.30e-18
+Time:                        13:09:41   Log-Likelihood:                -2613.0
 No. Observations:                1625   AIC:                             5300.
 Df Residuals:                    1588   BIC:                             5500.
 Df Model:                          36                                         

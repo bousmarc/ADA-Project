@@ -3,8 +3,8 @@
 Dep. Variable:                log_tax   R-squared:                       0.425
 Model:                            OLS   Adj. R-squared:                  0.415
 Method:                 Least Squares   F-statistic:                     166.9
-Date:                Sat, 21 Nov 2026   Prob (F-statistic):           1.51e-20
-Time:                        13:12:00   Log-Likelihood:                -1530.3
+Date:                Tue, 24 Nov 2026   Prob (F-statistic):           1.51e-20
+Time:                        13:09:43   Log-Likelihood:                -1530.3
 No. Observations:                2108   AIC:                             3139.
 Df Residuals:                    2069   BIC:                             3359.
 Df Model:                          38                                         

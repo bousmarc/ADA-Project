@@ -6,7 +6,7 @@ table with one row per Swiss commune (data for 2022, commune list of 6 April 202
 
 Input  : data/raw/ (SFSO, ESTV, FSO permit table) and data/processed/commune_geo.csv
          (from code/01_geo_features.py, which must run first)
-Output : data/processed/communes_2022.csv   (2,115 communes x 56 columns)
+Output : data/processed/communes_2022.csv   (2,115 communes x 58 columns)
 
 Main decisions (details in the comments of each section and in the paper):
   - Every file is moved to the 2025 commune list with the SFSO mutation register;
@@ -23,6 +23,8 @@ Main decisions (details in the comments of each section and in the paper):
     from a STATPOP table sent by the FSO on request.
   - German and French nationals (% of foreign residents) and residents of
     single-family houses (% of residents), from the SFSO Map Explorer.
+  - Tax burden of a single person at CHF 100k and 200k (ESTV tax calculator):
+    used only as a robustness check for tax competition (notebook 04).
   - Many asserts stop the script if a file changes layout or a check fails.
 
 Run from the repository folder:   python code/02_clean_merge.py   (under a minute)
@@ -34,7 +36,8 @@ import numpy as np
 import pandas as pd
 
 import helpers
-from helpers import PROCESSED, RAW, SECRET, check_header, read_map_explorer, to_numbers
+from helpers import (PROCESSED, RAW, SECRET, check_header, read_key_figures,
+                     read_map_explorer, to_numbers)
 
 PROCESSED.mkdir(parents=True, exist_ok=True)
 
@@ -228,20 +231,6 @@ perm = harmonise(perm, ["statpop_total", "swiss"] + permit_groups, "permits")
 #     or on request), whom ESTV counts with the ordinary income data
 #     (ESTV, NFA instructions, annex 2, section 2.1.2).
 # ---------------------------------------------------------------------------
-def read_key_figures(filename):
-    df = pd.read_excel(RAW / filename, sheet_name="Gemeinden - Communes", header=None)
-    for col, text in [(2, "Gemeindenummer"), (4, "Einheit ID"), (6, "stpf"), (7, "snpstbetr"),
-                      (12, "median_steink"), (13, "gini_steink")]:
-        check_header(df.iloc[0], col, text)
-    df = df.iloc[1:]
-    df = df[df[4] == "T"]                          # T = all households (not married / single)
-    return pd.DataFrame({"code": df[2].astype(int),
-                         "n": pd.to_numeric(df[6]),             # stpf: number of taxpayers
-                         "tax": pd.to_numeric(df[7]),           # snpstbetr: federal tax, CHF
-                         "median": pd.to_numeric(df[12]),       # median taxable income, CHF
-                         "gini": pd.to_numeric(df[13])})        # Gini of taxable income
-
-
 kf_all = read_key_figures("statistik-dbst-np-kennzahlen-ohne-2022.xlsx")   # all filers
 kf_pay = read_key_figures("statistik-dbst-np-kennzahlen-mit-2022.xlsx")    # payers only
 
@@ -257,6 +246,39 @@ income = (kf_all.loc[single, ["code_2025", "median", "gini"]]
           .rename(columns={"code_2025": "code", "median": "median_taxable_income",
                            "gini": "gini_taxable_income"}))
 key = key.merge(income, on="code", how="left")
+
+
+# ---------------------------------------------------------------------------
+# 4d. Tax burden 2022 (ESTV tax calculator, "tax burden statistics", 2022 list)
+#     Income tax of a single person without children, no church tax, at a gross
+#     income of CHF 100,000 and 200,000, in % of that income (federal + cantonal +
+#     communal + personal tax). The federal part is the same everywhere, so the
+#     differences between communes come from cantonal and communal tax rates.
+#     Merged communes: a rate cannot be added, so the parts are averaged,
+#     weighted by their number of taxpayers in 2022.
+# ---------------------------------------------------------------------------
+def read_burden(filename, income):
+    df = pd.read_excel(RAW / filename, header=None)
+    assert df.iloc[4, 2] == income, f"{filename}: not the income of CHF {income}"
+    check_header(df.iloc[6], 2, "SFO Commune ID")
+    check_header(df.iloc[6], 4, "Total tax burden in %")
+    df = df.iloc[7:]
+    return pd.DataFrame({"code": df[2].astype(int), "burden": pd.to_numeric(df[4])})
+
+
+burden = (read_burden("tax_burden_2022_single_100k.xlsx", 100_000).rename(columns={"burden": "tax_burden_100k"})
+          .merge(read_burden("tax_burden_2022_single_200k.xlsx", 200_000)
+                 .rename(columns={"burden": "tax_burden_200k"}), on="code"))
+burden = burden.merge(kf_pay[["code", "n"]], on="code", how="left")
+assert burden["n"].notna().all(), "a commune of the tax burden file has no taxpayers in 2022"
+burden["code"] = burden["code"].map(to_2025)
+burden_cols = ["tax_burden_100k", "tax_burden_200k"]
+for col in burden_cols:
+    burden[col] = burden[col] * burden["n"]
+burden = burden.groupby("code")[burden_cols + ["n"]].sum()
+burden[burden_cols] = burden[burden_cols].div(burden["n"], axis=0)
+burden = burden[burden_cols].reset_index()
+assert set(burden["code"]) == communes_2025, "tax burden does not cover the 2025 list"
 
 
 # ---------------------------------------------------------------------------
@@ -330,7 +352,8 @@ df = (pop.merge(typ, on="code", how="left")
          .merge(geo, on="code", how="left")
          .merge(key, on="code", how="left")
          .merge(nat, on="code", how="left")
-         .merge(house, on="code", how="left"))
+         .merge(house, on="code", how="left")
+         .merge(burden, on="code", how="left"))
 
 
 # ---------------------------------------------------------------------------
@@ -428,7 +451,8 @@ assert df["code"].is_unique, "a commune appears twice"
 assert len(df) == len(communes_2025), "commune count changed during the merge"
 assert 8.7e6 < df["population"].sum() < 9.0e6, "Swiss population 2022 should be about 8.8 million"
 for col in ["foreign_share", "share_under20", "share_65plus", "sa_rate",
-            "german_share_foreign", "french_share_foreign", "share_single_family"]:
+            "german_share_foreign", "french_share_foreign", "share_single_family",
+            "tax_burden_100k", "tax_burden_200k"]:
     assert df[col].dropna().between(0, 100).all(), f"{col} outside 0-100 %"
 # German + French cannot exceed all foreigners (shares are rounded to 0.1)
 assert (df["neighbour_share_foreign"].dropna() <= 100.2).all(), "German + French above 100 % of foreigners"

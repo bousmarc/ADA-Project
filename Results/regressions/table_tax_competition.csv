@@ -1,0 +1,8 @@
+,M4 (as above),+ tax burden at CHF 100k,+ tax burden at CHF 200k
+Tax: foreign share (M4),0.0002,0.0014,0.0014
+Tax: foreign share squared,-0.000690***,-0.000566***,-0.000561***
+Tax: urban slope,-0.0153***,-0.0097***,-0.0096***
+Tax: rural slope,0.0150**,0.0116**,0.0115**
+SA: foreign share (M4),0.0515***,0.0470***,0.0471***
+Tax: coefficient of the tax burden,,-0.3610***,-0.2955***
+SA: coefficient of the tax burden,,0.5380***,0.4318***
