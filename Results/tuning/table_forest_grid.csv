@@ -1,0 +1,61 @@
+outcome,scheme,max_features,min_samples_leaf,R²
+Tax (log),random folds,0.33,1,0.3453
+Tax (log),random folds,0.33,3,0.3366
+Tax (log),random folds,0.33,5,0.3307
+Tax (log),random folds,0.33,10,0.3127
+Tax (log),random folds,0.33,20,0.2851
+Tax (log),random folds,0.6,1,0.3495
+Tax (log),random folds,0.6,3,0.3488
+Tax (log),random folds,0.6,5,0.3419
+Tax (log),random folds,0.6,10,0.3286
+Tax (log),random folds,0.6,20,0.3078
+Tax (log),random folds,1.0,1,0.3393
+Tax (log),random folds,1.0,3,0.337
+Tax (log),random folds,1.0,5,0.3363
+Tax (log),random folds,1.0,10,0.3277
+Tax (log),random folds,1.0,20,0.3102
+Tax (log),canton folds,0.33,1,0.2062
+Tax (log),canton folds,0.33,3,0.2038
+Tax (log),canton folds,0.33,5,0.1993
+Tax (log),canton folds,0.33,10,0.1831
+Tax (log),canton folds,0.33,20,0.1624
+Tax (log),canton folds,0.6,1,0.2021
+Tax (log),canton folds,0.6,3,0.2011
+Tax (log),canton folds,0.6,5,0.1949
+Tax (log),canton folds,0.6,10,0.187
+Tax (log),canton folds,0.6,20,0.1704
+Tax (log),canton folds,1.0,1,0.1879
+Tax (log),canton folds,1.0,3,0.189
+Tax (log),canton folds,1.0,5,0.1864
+Tax (log),canton folds,1.0,10,0.1783
+Tax (log),canton folds,1.0,20,0.1629
+SA rate (pp),random folds,0.33,1,0.2822
+SA rate (pp),random folds,0.33,3,0.2879
+SA rate (pp),random folds,0.33,5,0.2838
+SA rate (pp),random folds,0.33,10,0.2723
+SA rate (pp),random folds,0.33,20,0.2534
+SA rate (pp),random folds,0.6,1,0.2756
+SA rate (pp),random folds,0.6,3,0.2862
+SA rate (pp),random folds,0.6,5,0.2883
+SA rate (pp),random folds,0.6,10,0.285
+SA rate (pp),random folds,0.6,20,0.2693
+SA rate (pp),random folds,1.0,1,0.2624
+SA rate (pp),random folds,1.0,3,0.2743
+SA rate (pp),random folds,1.0,5,0.2777
+SA rate (pp),random folds,1.0,10,0.281
+SA rate (pp),random folds,1.0,20,0.2743
+SA rate (pp),canton folds,0.33,1,0.1134
+SA rate (pp),canton folds,0.33,3,0.1329
+SA rate (pp),canton folds,0.33,5,0.1456
+SA rate (pp),canton folds,0.33,10,0.1463
+SA rate (pp),canton folds,0.33,20,0.1436
+SA rate (pp),canton folds,0.6,1,0.0942
+SA rate (pp),canton folds,0.6,3,0.1028
+SA rate (pp),canton folds,0.6,5,0.1168
+SA rate (pp),canton folds,0.6,10,0.1372
+SA rate (pp),canton folds,0.6,20,0.144
+SA rate (pp),canton folds,1.0,1,0.0573
+SA rate (pp),canton folds,1.0,3,0.0809
+SA rate (pp),canton folds,1.0,5,0.0952
+SA rate (pp),canton folds,1.0,10,0.1161
+SA rate (pp),canton folds,1.0,20,0.1267

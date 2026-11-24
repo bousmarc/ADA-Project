@@ -1,0 +1,97 @@
+outcome,scheme,learning_rate,max_depth,l2_regularization,R²
+Tax (log),random folds,0.01,2,0,0.2601
+Tax (log),random folds,0.01,2,1,0.2633
+Tax (log),random folds,0.01,3,0,0.2826
+Tax (log),random folds,0.01,3,1,0.284
+Tax (log),random folds,0.01,5,0,0.3122
+Tax (log),random folds,0.01,5,1,0.3118
+Tax (log),random folds,0.01,8,0,0.3119
+Tax (log),random folds,0.01,8,1,0.3113
+Tax (log),random folds,0.03,2,0,0.2752
+Tax (log),random folds,0.03,2,1,0.2665
+Tax (log),random folds,0.03,3,0,0.2943
+Tax (log),random folds,0.03,3,1,0.3028
+Tax (log),random folds,0.03,5,0,0.3194
+Tax (log),random folds,0.03,5,1,0.3148
+Tax (log),random folds,0.03,8,0,0.3206
+Tax (log),random folds,0.03,8,1,0.3213
+Tax (log),random folds,0.1,2,0,0.2847
+Tax (log),random folds,0.1,2,1,0.2865
+Tax (log),random folds,0.1,3,0,0.3133
+Tax (log),random folds,0.1,3,1,0.3097
+Tax (log),random folds,0.1,5,0,0.3296
+Tax (log),random folds,0.1,5,1,0.3265
+Tax (log),random folds,0.1,8,0,0.3233
+Tax (log),random folds,0.1,8,1,0.3256
+Tax (log),canton folds,0.01,2,0,0.1475
+Tax (log),canton folds,0.01,2,1,0.1462
+Tax (log),canton folds,0.01,3,0,0.1709
+Tax (log),canton folds,0.01,3,1,0.1632
+Tax (log),canton folds,0.01,5,0,0.1811
+Tax (log),canton folds,0.01,5,1,0.1845
+Tax (log),canton folds,0.01,8,0,0.1844
+Tax (log),canton folds,0.01,8,1,0.1823
+Tax (log),canton folds,0.03,2,0,0.1464
+Tax (log),canton folds,0.03,2,1,0.147
+Tax (log),canton folds,0.03,3,0,0.1749
+Tax (log),canton folds,0.03,3,1,0.1741
+Tax (log),canton folds,0.03,5,0,0.1905
+Tax (log),canton folds,0.03,5,1,0.1938
+Tax (log),canton folds,0.03,8,0,0.1882
+Tax (log),canton folds,0.03,8,1,0.19
+Tax (log),canton folds,0.1,2,0,0.1402
+Tax (log),canton folds,0.1,2,1,0.1522
+Tax (log),canton folds,0.1,3,0,0.1834
+Tax (log),canton folds,0.1,3,1,0.1828
+Tax (log),canton folds,0.1,5,0,0.1875
+Tax (log),canton folds,0.1,5,1,0.1866
+Tax (log),canton folds,0.1,8,0,0.1903
+Tax (log),canton folds,0.1,8,1,0.1915
+SA rate (pp),random folds,0.01,2,0,0.2762
+SA rate (pp),random folds,0.01,2,1,0.2788
+SA rate (pp),random folds,0.01,3,0,0.2801
+SA rate (pp),random folds,0.01,3,1,0.2813
+SA rate (pp),random folds,0.01,5,0,0.2795
+SA rate (pp),random folds,0.01,5,1,0.2782
+SA rate (pp),random folds,0.01,8,0,0.2706
+SA rate (pp),random folds,0.01,8,1,0.2669
+SA rate (pp),random folds,0.03,2,0,0.2786
+SA rate (pp),random folds,0.03,2,1,0.2807
+SA rate (pp),random folds,0.03,3,0,0.2846
+SA rate (pp),random folds,0.03,3,1,0.2863
+SA rate (pp),random folds,0.03,5,0,0.2813
+SA rate (pp),random folds,0.03,5,1,0.2852
+SA rate (pp),random folds,0.03,8,0,0.27
+SA rate (pp),random folds,0.03,8,1,0.2703
+SA rate (pp),random folds,0.1,2,0,0.2877
+SA rate (pp),random folds,0.1,2,1,0.286
+SA rate (pp),random folds,0.1,3,0,0.2896
+SA rate (pp),random folds,0.1,3,1,0.2883
+SA rate (pp),random folds,0.1,5,0,0.2826
+SA rate (pp),random folds,0.1,5,1,0.2862
+SA rate (pp),random folds,0.1,8,0,0.2575
+SA rate (pp),random folds,0.1,8,1,0.2597
+SA rate (pp),canton folds,0.01,2,0,0.1247
+SA rate (pp),canton folds,0.01,2,1,0.131
+SA rate (pp),canton folds,0.01,3,0,0.1126
+SA rate (pp),canton folds,0.01,3,1,0.1157
+SA rate (pp),canton folds,0.01,5,0,0.087
+SA rate (pp),canton folds,0.01,5,1,0.0773
+SA rate (pp),canton folds,0.01,8,0,0.0828
+SA rate (pp),canton folds,0.01,8,1,0.082
+SA rate (pp),canton folds,0.03,2,0,0.1186
+SA rate (pp),canton folds,0.03,2,1,0.121
+SA rate (pp),canton folds,0.03,3,0,0.108
+SA rate (pp),canton folds,0.03,3,1,0.1029
+SA rate (pp),canton folds,0.03,5,0,0.0714
+SA rate (pp),canton folds,0.03,5,1,0.0774
+SA rate (pp),canton folds,0.03,8,0,0.0677
+SA rate (pp),canton folds,0.03,8,1,0.0687
+SA rate (pp),canton folds,0.1,2,0,0.1121
+SA rate (pp),canton folds,0.1,2,1,0.112
+SA rate (pp),canton folds,0.1,3,0,0.0885
+SA rate (pp),canton folds,0.1,3,1,0.0949
+SA rate (pp),canton folds,0.1,5,0,0.0515
+SA rate (pp),canton folds,0.1,5,1,0.0487
+SA rate (pp),canton folds,0.1,8,0,0.0342
+SA rate (pp),canton folds,0.1,8,1,0.0215

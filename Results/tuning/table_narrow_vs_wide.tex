@@ -1,0 +1,14 @@
+\begin{tabular}{llrrrr}
+\toprule
+ & outcome & \multicolumn{2}{r}{Tax (log)} & \multicolumn{2}{r}{SA rate (pp)} \\
+ & scheme & random folds & canton folds & random folds & canton folds \\
+model & search &  &  &  &  \\
+\midrule
+\multirow[t]{2}{*}{Random forest} & narrow & 0.345 & 0.204 & 0.284 & 0.136 \\
+ & wide & 0.344 & 0.199 & 0.284 & 0.091 \\
+\cline{1-6}
+\multirow[t]{2}{*}{Gradient boosting} & narrow & 0.327 & 0.195 & 0.279 & 0.119 \\
+ & wide & 0.309 & 0.183 & 0.287 & 0.066 \\
+\cline{1-6}
+\bottomrule
+\end{tabular}

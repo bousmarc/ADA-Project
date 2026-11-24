@@ -10,17 +10,26 @@ Python 3.12 (tested in the course's Nuvolos workspace).
 pip install -r requirements.txt
 ```
 
-## Run, in this order (from the repository folder)
+## Run
+Everything, from the raw data to every table and figure, with one command from the repository folder (about 1 hour; about 20 minutes without notebook 05b, which can be switched off at the top of `run_all.py`):
+```bash
+python run_all.py
+```
+It runs the steps below in this order; each notebook is run from top to bottom in a fresh kernel and saved with its outputs. Switches at the top of `run_all.py` skip steps that have already run. Each step can also be run on its own:
+
 | Step | File | Produces | Time |
 |---|---|---|---|
 | 1 | `python code/01_geo_features.py` | `data/processed/commune_geo.csv` (position, distance to border) | ~2 min |
-| 2 | `python code/02_clean_merge.py` | `data/processed/communes_2022.csv` (2,115 communes × 56 columns) | < 1 min |
+| 2 | `python code/02_clean_merge.py` | `data/processed/communes_2022.csv` (2,115 communes × 58 columns) | < 1 min |
+| 2b | `python code/02b_later_years.py` | `data/processed/outcomes_later_years.csv` (tax 2023, social assistance 2023–2024, for the out-of-time test) | a few seconds |
 | 3 | `notebooks/03_descriptive_stats.ipynb` | tables, figures and LaTeX tables in `Results/descriptive/` | < 1 min |
 | 4 | `notebooks/04_regression_ols.ipynb` | regression tables, figures and LaTeX tables in `Results/regressions/` | ~1 min |
 | 5 | `notebooks/05_machine_learning.ipynb` | model comparison, figures and LaTeX tables in `Results/ml/` | ~12 min |
-| 6 | `notebooks/06_clustering.ipynb` | `Results/clustering/` | (to come) |
+| 5b | `notebooks/05b_tuning.ipynb` | every tuning option tried (number of trees, full grids, narrow vs wide search, canton-fold tuning) in `Results/tuning/` | ~35 min |
+| 6 | `notebooks/06_clustering.ipynb` | PCA, commune types, figures and LaTeX tables in `Results/clustering/` | < 1 min |
+| 7 | `notebooks/07_later_years.ipynb` | out-of-time test of the 2022 results in `Results/out_of_time/` | ~2 min |
 
-Each stage reads only what the previous one saved. Notebooks run top to bottom from a fresh kernel. `Results/` is created by the code; `figures/` holds the figures used in the paper. Shared functions are in `code/helpers.py`. Hardware: a standard laptop / Nuvolos; no GPU.
+Each stage reads only what the previous one saved. Notebooks run top to bottom from a fresh kernel. `Results/` is created by the code and holds every table and figure, including those in the paper. Shared functions are in `code/helpers.py`. Hardware: a standard laptop / Nuvolos; no GPU.
 
 ## Data
 The main data refer to 2022, at commune level, on the commune list of 6 April 2025. Files for 2023–2025 are used only for an out-of-time test of the 2022 results.
@@ -28,9 +37,10 @@ The main data refer to 2022, at commune level, on the commune list of 6 April 20
 | File in `data/raw/` | Source | Licence / use |
 |---|---|---|
 | `population_2022.csv`, `social_assistance_2022.csv`, `jobs_2022.csv`, `nationality_2022.csv` (German and French nationals, % of foreign residents), `housing_residents_2022.csv` (residents of single-family houses, %) | Swiss Federal Statistical Office (FSO), Map Explorer / Statistical Atlas | OPEN-BY-ASK: non-commercial use, source must be cited |
-| `social_assistance_2023.csv`, `_2024.csv`, `_2025.csv`, `population_2023.csv` (out-of-time test); `social_assistance_2022_check.csv` (2022 re-downloaded in 2026, to check for revisions) | FSO, Map Explorer | OPEN-BY-ASK: non-commercial use, source must be cited |
+| `social_assistance_2023.csv`, `_2024.csv`, `_2025.csv`, `population_2023.csv`, `foreigners_2023.csv`, `foreigners_2024.csv` (out-of-time test and changes within communes); `social_assistance_2022_check.csv` (2022 re-downloaded in 2026, to check for revisions) | FSO, Map Explorer | OPEN-BY-ASK: non-commercial use, source must be cited |
 | `statistik-dbst-np-mit-belastung-2023.xlsx`, `statistik-dbst-np-mit-und-ohne-belastung-2023.xlsx` (out-of-time test) | ESTV, federal direct tax, key figures for individuals, tax period 2023 (published 5 November 2026) | reproduction allowed with source ("© ESTV") |
 | `statistik-dbst-np-kennzahlen-mit-2022.xlsx`, `statistik-dbst-np-kennzahlen-ohne-2022.xlsx` | Federal Tax Administration (ESTV), federal direct tax, key figures for individuals, tax period 2022 (payers only / all filers): main source for tax and taxpayers | reproduction allowed with source ("© ESTV") |
+| `tax_burden_2022_single_100k.xlsx`, `tax_burden_2022_single_200k.xlsx` | ESTV tax calculator, tax burden statistics 2022 (income tax, single, no children, no church tax, gross income CHF 100,000 / 200,000, all communes); exported from swisstaxcalculator.estv.admin.ch | reproduction allowed with source ("© ESTV") |
 | `dbst_2022_normal.xlsx`, `dbst_2022_special.xlsx` | ESTV, federal direct tax by income class, tax period 2022: share of tax paid by incomes above CHF 200k | reproduction allowed with source ("© ESTV") |
 | `commune_typology_2025.xlsx` | FSO, spatial classifications (Raumgliederungen) | FSO terms of use, source must be cited |
 | `commune_mutations_2022_2025.xlsx` | FSO, register of commune mutations | FSO terms of use, source must be cited |
