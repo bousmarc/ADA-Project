@@ -1,0 +1,81 @@
+result,controls,sample,weights,outcome,estimate,ci_low,ci_high,p_value,n,baseline
+SA: foreign share,"M2: size, age, jobs",All communes,Unweighted,SA rate (level),2.3439684084111305,1.054061918106648,3.633874898715613,0.0009568188182649254,1625,False
+SA: foreign share,"M2: size, age, jobs",All communes,Unweighted,SA rate (log),1.57245901352292,0.3885737060726625,2.7563443209731773,0.011288427423907432,1625,False
+SA: foreign share,"M2: size, age, jobs",All communes,Population-weighted,SA rate (level),2.013269018202201,0.6303417009292815,3.39619633547512,0.006063162336922057,1625,False
+SA: foreign share,"M2: size, age, jobs",All communes,Population-weighted,SA rate (log),1.6235084053232511,0.2232970436224689,3.0237197670240334,0.024815165083521162,1625,False
+SA: foreign share,"M2: size, age, jobs",Without intl-official communes,Unweighted,SA rate (level),2.684824053760271,0.8740330732255749,4.495615034294966,0.005306130178897581,1576,False
+SA: foreign share,"M2: size, age, jobs",Without intl-official communes,Unweighted,SA rate (log),1.9503873764164599,0.459816565584651,3.4409581872482686,0.012404549904565345,1576,False
+SA: foreign share,"M2: size, age, jobs",Without intl-official communes,Population-weighted,SA rate (level),2.0471448776127845,0.36640034726181686,3.7278894079637523,0.018976573581766035,1576,False
+SA: foreign share,"M2: size, age, jobs",Without intl-official communes,Population-weighted,SA rate (log),1.7500171785804388,0.2563949082857928,3.2436394488750855,0.023477950634803763,1576,False
+SA: foreign share,"M2: size, age, jobs",Without resort communes,Unweighted,SA rate (level),2.3493213345906057,1.062514375618151,3.63612829356306,0.0009149756681748986,1623,False
+SA: foreign share,"M2: size, age, jobs",Without resort communes,Unweighted,SA rate (log),1.5876535223986206,0.4097022297296079,2.765604815067633,0.010274531340349547,1623,False
+SA: foreign share,"M2: size, age, jobs",Without resort communes,Population-weighted,SA rate (level),2.0145673805397224,0.6313471545973005,3.397787606482144,0.006044281297873032,1623,False
+SA: foreign share,"M2: size, age, jobs",Without resort communes,Population-weighted,SA rate (log),1.633886834853398,0.23735709249206838,3.0304165772147273,0.0236601885621267,1623,False
+SA: foreign share,"M3: + urban type, language",All communes,Unweighted,SA rate (level),1.5846135176243044,0.5066429744454684,2.6625840608031406,0.0056513524037938604,1625,False
+SA: foreign share,"M3: + urban type, language",All communes,Unweighted,SA rate (log),0.9601333243100221,-0.21302183480608142,2.133288483426125,0.10432286922095418,1625,False
+SA: foreign share,"M3: + urban type, language",All communes,Population-weighted,SA rate (level),1.2440083769918975,0.32180161895757103,2.1662151350262238,0.010218344444658632,1625,False
+SA: foreign share,"M3: + urban type, language",All communes,Population-weighted,SA rate (log),0.9959873185636252,-0.1827218248292236,2.174696461956474,0.09410895159046033,1625,False
+SA: foreign share,"M3: + urban type, language",Without intl-official communes,Unweighted,SA rate (level),1.9764367155227687,0.6111173872531835,3.341756043792354,0.00631402418614463,1576,False
+SA: foreign share,"M3: + urban type, language",Without intl-official communes,Unweighted,SA rate (log),1.357498376343352,0.11317729860576328,2.6018194540809407,0.03372253905079868,1576,False
+SA: foreign share,"M3: + urban type, language",Without intl-official communes,Population-weighted,SA rate (level),1.4219377319001112,0.35507415720770896,2.488801306592513,0.011042135533832502,1576,False
+SA: foreign share,"M3: + urban type, language",Without intl-official communes,Population-weighted,SA rate (log),1.2121804551036952,0.03393995998844466,2.390420950218946,0.04421238935770156,1576,False
+SA: foreign share,"M3: + urban type, language",Without resort communes,Unweighted,SA rate (level),1.5850067372786076,0.5070941462853974,2.6629193282718178,0.0056389173422995145,1623,False
+SA: foreign share,"M3: + urban type, language",Without resort communes,Unweighted,SA rate (log),0.966079208584998,-0.21046592138565576,2.1426243385556516,0.10324538377907287,1623,False
+SA: foreign share,"M3: + urban type, language",Without resort communes,Population-weighted,SA rate (level),1.247175113057048,0.3246624454497236,2.1696877806643724,0.010072347944868141,1623,False
+SA: foreign share,"M3: + urban type, language",Without resort communes,Population-weighted,SA rate (log),1.0050075022643807,-0.17236163030222695,2.1823766348309883,0.09098133976047751,1623,False
+SA: foreign share,M4: + canton fixed effects,All communes,Unweighted,SA rate (level),2.5323652771623935,1.489270377419136,3.5754601769056507,3.726835524451776e-05,1625,True
+SA: foreign share,M4: + canton fixed effects,All communes,Unweighted,SA rate (log),1.8647923994508593,0.9539507152769333,2.7756340836247855,0.0002836191966093819,1625,False
+SA: foreign share,M4: + canton fixed effects,All communes,Population-weighted,SA rate (level),2.064935872528407,0.8882833866078255,3.2415883584489884,0.0013240204817021423,1625,False
+SA: foreign share,M4: + canton fixed effects,All communes,Population-weighted,SA rate (log),1.9934921225990307,1.224912217906351,2.7620720272917105,1.5426984345877335e-05,1625,False
+SA: foreign share,M4: + canton fixed effects,Without intl-official communes,Unweighted,SA rate (level),3.024614268880272,1.8223346690949307,4.226893868665613,2.333392217124075e-05,1576,False
+SA: foreign share,M4: + canton fixed effects,Without intl-official communes,Unweighted,SA rate (log),2.31899427977826,1.6386803879159646,2.9993081716405556,2.3325225076369045e-07,1576,False
+SA: foreign share,M4: + canton fixed effects,Without intl-official communes,Population-weighted,SA rate (level),2.246870112077239,0.999623051137579,3.4941171730168983,0.0010387180047834144,1576,False
+SA: foreign share,M4: + canton fixed effects,Without intl-official communes,Population-weighted,SA rate (log),2.1123901263844185,1.3735466776812333,2.8512335750876034,3.825179238609753e-06,1576,False
+SA: foreign share,M4: + canton fixed effects,Without resort communes,Unweighted,SA rate (level),2.5313453838669853,1.4916536986645808,3.57103706906939,3.591054242058971e-05,1623,False
+SA: foreign share,M4: + canton fixed effects,Without resort communes,Unweighted,SA rate (log),1.8683577721691185,0.9607139706332547,2.776001573704982,0.00026729692117767064,1623,False
+SA: foreign share,M4: + canton fixed effects,Without resort communes,Population-weighted,SA rate (level),2.0657219753072913,0.8906526812675513,3.240791269347031,0.001303291595014729,1623,False
+SA: foreign share,M4: + canton fixed effects,Without resort communes,Population-weighted,SA rate (log),2.001242867010012,1.24025815945491,2.762227574565115,1.2746484092273704e-05,1623,False
+SA: foreign share,M4 + tax burden,All communes,Unweighted,SA rate (level),2.31111490598599,1.2081908495823097,3.4140389623896703,0.00021953043123146168,1625,False
+SA: foreign share,M4 + tax burden,All communes,Unweighted,SA rate (log),1.611724459881195,0.8458050882791532,2.377643831483237,0.0002094101707411249,1625,False
+SA: foreign share,M4 + tax burden,All communes,Population-weighted,SA rate (level),1.9454348095028604,0.698377076088065,3.192492542917656,0.00360008082209249,1625,False
+SA: foreign share,M4 + tax burden,All communes,Population-weighted,SA rate (log),1.8215681084614848,1.055697076436482,2.5874391404864876,4.8476398051261916e-05,1625,False
+SA: foreign share,M4 + tax burden,Without intl-official communes,Unweighted,SA rate (level),2.7640551934158073,1.462765222010164,4.0653451648214505,0.00018844544289856705,1576,False
+SA: foreign share,M4 + tax burden,Without intl-official communes,Unweighted,SA rate (log),1.9996273643626692,1.3091959366537516,2.6900587920715866,3.152825721926987e-06,1576,False
+SA: foreign share,M4 + tax burden,Without intl-official communes,Population-weighted,SA rate (level),2.1462123957557226,0.7971238719606529,3.4953009195507923,0.0030792489616981856,1576,False
+SA: foreign share,M4 + tax burden,Without intl-official communes,Population-weighted,SA rate (log),1.9596393940928258,1.1797480143155914,2.7395307738700603,2.371198852802357e-05,1576,False
+SA: foreign share,M4 + tax burden,Without resort communes,Unweighted,SA rate (level),2.309059061805721,1.2081456714795218,3.40997245213192,0.00021725021150025724,1623,False
+SA: foreign share,M4 + tax burden,Without resort communes,Unweighted,SA rate (log),1.613595173413819,0.8509969709409297,2.376193375886708,0.00019683613008296963,1623,False
+SA: foreign share,M4 + tax burden,Without resort communes,Population-weighted,SA rate (level),1.9465150702164296,0.7009835338717082,3.1920466065611506,0.0035498705947135775,1623,False
+SA: foreign share,M4 + tax burden,Without resort communes,Population-weighted,SA rate (log),1.8293151638012495,1.070562415316537,2.588067912285962,4.075744303861478e-05,1623,False
+Tax: urban slope,"M2: size, age, jobs",All communes,Unweighted,Tax per resident (log),-0.32450411677808594,-1.7370003873055138,1.0879921537493418,0.640208371565956,2108,False
+Tax: urban slope,"M2: size, age, jobs",All communes,Population-weighted,Tax per resident (log),-0.9494681035692614,-2.5509803383019265,0.6520441311634037,0.2334722521331419,2108,False
+Tax: urban slope,"M2: size, age, jobs",Without intl-official communes,Unweighted,Tax per resident (log),-1.1656425410111846,-2.3831714721031134,0.05188639008074456,0.05979776822826434,2050,False
+Tax: urban slope,"M2: size, age, jobs",Without intl-official communes,Population-weighted,Tax per resident (log),-1.5278600141214642,-2.9830972650773937,-0.0726227631655349,0.04036148580165695,2050,False
+Tax: urban slope,"M2: size, age, jobs",Without resort communes,Unweighted,Tax per resident (log),-0.32266341997039183,-1.7370581692489981,1.0917313293082147,0.6425426297863365,2097,False
+Tax: urban slope,"M2: size, age, jobs",Without resort communes,Population-weighted,Tax per resident (log),-0.9661450364516329,-2.564548576075048,0.6322585031717821,0.22472120690877506,2097,False
+Tax: urban slope,"M2: size, age, jobs",Same communes as SA,Unweighted,Tax per resident (log),-0.24276951038561742,-1.761251208374532,1.275712187603297,0.7446930254551583,1625,False
+Tax: urban slope,"M2: size, age, jobs",Same communes as SA,Population-weighted,Tax per resident (log),-0.9768118073865628,-2.5855616630838156,0.6319380483106901,0.22268623040547947,1625,False
+Tax: urban slope,"M3: + urban type, language",All communes,Unweighted,Tax per resident (log),-0.674030509117822,-1.99027147117341,0.6422104529377659,0.30166563693824616,2108,False
+Tax: urban slope,"M3: + urban type, language",All communes,Population-weighted,Tax per resident (log),-1.0496810504867005,-2.755566402582671,0.6562043016092703,0.21672832332159842,2108,False
+Tax: urban slope,"M3: + urban type, language",Without intl-official communes,Unweighted,Tax per resident (log),-1.3879250842396627,-2.683139705760528,-0.09271046271879732,0.03672211041927891,2050,False
+Tax: urban slope,"M3: + urban type, language",Without intl-official communes,Population-weighted,Tax per resident (log),-1.4763150439291561,-3.0672400692412025,0.1146099813828903,0.06751327114393046,2050,False
+Tax: urban slope,"M3: + urban type, language",Without resort communes,Unweighted,Tax per resident (log),-0.6838815766141539,-1.9991864924367095,0.6314233392084015,0.2944713355772069,2097,False
+Tax: urban slope,"M3: + urban type, language",Without resort communes,Population-weighted,Tax per resident (log),-1.0661296144229286,-2.7685781702678964,0.6363189414220387,0.20894129308474266,2097,False
+Tax: urban slope,"M3: + urban type, language",Same communes as SA,Unweighted,Tax per resident (log),-0.6461961025237467,-2.087934850190512,0.7955426451430184,0.3647802577063105,1625,False
+Tax: urban slope,"M3: + urban type, language",Same communes as SA,Population-weighted,Tax per resident (log),-1.0623886142124026,-2.774753756527281,0.6499765281024759,0.2130642845215754,1625,False
+Tax: urban slope,M4: + canton fixed effects,All communes,Unweighted,Tax per resident (log),-1.531364896697201,-2.4124105603412405,-0.6503192330531614,0.001444806476737509,2108,True
+Tax: urban slope,M4: + canton fixed effects,All communes,Population-weighted,Tax per resident (log),-1.855162946556677,-2.810658676320073,-0.8996672167932808,0.000497048653740126,2108,False
+Tax: urban slope,M4: + canton fixed effects,Without intl-official communes,Unweighted,Tax per resident (log),-1.9638944982597388,-2.802658054034252,-1.1251309424852256,5.906114946199373e-05,2050,False
+Tax: urban slope,M4: + canton fixed effects,Without intl-official communes,Population-weighted,Tax per resident (log),-1.7798418203495991,-2.945207961205475,-0.6144756794937232,0.004245589720959373,2050,False
+Tax: urban slope,M4: + canton fixed effects,Without resort communes,Unweighted,Tax per resident (log),-1.517511213191859,-2.4109859666331377,-0.6240364597505808,0.001774381514458617,2097,False
+Tax: urban slope,M4: + canton fixed effects,Without resort communes,Population-weighted,Tax per resident (log),-1.8652091766593402,-2.819781761973765,-0.9106365913449157,0.0004654784340195373,2097,False
+Tax: urban slope,M4: + canton fixed effects,Same communes as SA,Unweighted,Tax per resident (log),-1.3375189665525198,-2.2787195843726025,-0.39631834873243704,0.007194731073640032,1625,False
+Tax: urban slope,M4: + canton fixed effects,Same communes as SA,Population-weighted,Tax per resident (log),-1.8215642432618036,-2.7813703204714586,-0.8617581660521482,0.0006261614471838594,1625,False
+Tax: urban slope,M4 + tax burden,All communes,Unweighted,Tax per resident (log),-0.9668599145012576,-1.6286668391587644,-0.30505298984375084,0.005910922222022229,2108,False
+Tax: urban slope,M4 + tax burden,All communes,Population-weighted,Tax per resident (log),-1.228032310806026,-2.0204130542260326,-0.4356515673860195,0.003790677407073353,2108,False
+Tax: urban slope,M4 + tax burden,Without intl-official communes,Unweighted,Tax per resident (log),-1.3089690350814964,-1.9804585171258566,-0.6374795530371364,0.0004770045498516723,2050,False
+Tax: urban slope,M4 + tax burden,Without intl-official communes,Population-weighted,Tax per resident (log),-1.1928543428222753,-2.1756714315482006,-0.2100372540963496,0.019356972215383378,2050,False
+Tax: urban slope,M4 + tax burden,Without resort communes,Unweighted,Tax per resident (log),-0.9545189091207988,-1.6343372452750846,-0.2747005729665129,0.007819350507121473,2097,False
+Tax: urban slope,M4 + tax burden,Without resort communes,Population-weighted,Tax per resident (log),-1.2383126905617543,-2.028615901877597,-0.44800947924591195,0.003477295980917715,2097,False
+Tax: urban slope,M4 + tax burden,Same communes as SA,Unweighted,Tax per resident (log),-0.5888900632136305,-1.3818359665478643,0.20405584012060324,0.13868678744438365,1625,False
+Tax: urban slope,M4 + tax burden,Same communes as SA,Population-weighted,Tax per resident (log),-1.2323343566766545,-2.032542453498472,-0.43212625985483666,0.003982231366691703,1625,False

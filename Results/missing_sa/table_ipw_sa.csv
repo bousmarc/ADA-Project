@@ -1,0 +1,5 @@
+,SA: foreign share,std. error,N
+Notebook 04 (unweighted),0.0515***,(0.0103),1625
+IPW,0.0522***,(0.0096),1625
+Population-weighted (04 §7),0.0642***,(0.0178),1625
+IPW × population,0.0620***,(0.0173),1625

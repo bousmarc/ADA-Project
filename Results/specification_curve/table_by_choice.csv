@@ -1,0 +1,22 @@
+result,choice,option,specifications,median estimate (%),share significant at 5%
+SA: foreign share,Controls,"M2: size, age, jobs",12,1.9818281973093304,1.0
+SA: foreign share,Controls,"M3: + urban type, language",12,1.245591745024473,0.6666666666666666
+SA: foreign share,Controls,M4: + canton fixed effects,12,2.089056050845855,1.0
+SA: foreign share,Controls,M4 + tax burden,12,1.9530772321546277,1.0
+SA: foreign share,Sample,All communes,16,1.843180253956172,0.875
+SA: foreign share,Sample,Without intl-official communes,16,2.023386120987727,1.0
+SA: foreign share,Sample,Without resort communes,16,1.8488364679851839,0.875
+SA: foreign share,Weights,Unweighted,24,1.9634120459696143,0.9166666666666666
+SA: foreign share,Weights,Population-weighted,24,1.9459749398596449,0.9166666666666666
+SA: foreign share,Outcome,SA rate (level),24,2.065328923917849,1.0
+SA: foreign share,Outcome,SA rate (log),24,1.6919520067169183,0.8333333333333334
+Tax: urban slope,Controls,"M2: size, age, jobs",8,-0.9578065700104471,0.125
+Tax: urban slope,Controls,"M3: + urban type, language",8,-1.0560348323495514,0.125
+Tax: urban slope,Controls,M4: + canton fixed effects,8,-1.8007030318057013,1.0
+Tax: urban slope,Controls,M4 + tax burden,8,-1.2104433268141506,0.875
+Tax: urban slope,Sample,All communes,8,-1.008270482493979,0.5
+Tax: urban slope,Sample,Without intl-official communes,8,-1.4321200640844094,0.75
+Tax: urban slope,Sample,Without resort communes,8,-1.0161373254372807,0.5
+Tax: urban slope,Sample,Same communes as SA,8,-1.0196002107994828,0.375
+Tax: urban slope,Weights,Unweighted,16,-0.9606894118110283,0.5
+Tax: urban slope,Weights,Population-weighted,16,-1.2301833337413401,0.5625
