@@ -1,6 +1,6 @@
 ,Tax (log),SA rate (pp)
 No controls,0.0199*** (0.0054),0.0557*** (0.0102)
-"OLS, linear controls (= M4)",0.0002 (0.0054),0.0515*** (0.0102)
+"OLS, linear controls (= M4)",0.0002 (0.0055),0.0515*** (0.0103)
 "DML, random forest",0.0028 (0.0047),0.0482*** (0.0115)
 "DML, gradient boosting",0.0032 (0.0048),0.0510*** (0.0117)
 "DML, random forest + location",-0.0021 (0.0049),0.0578*** (0.0147)

@@ -8,6 +8,11 @@ seaborn==0.13.2
 scikit-learn==1.9.1
 scipy==1.18.1          # statistical tests, spatial neighbours
 statsmodels==0.15.0
+pyfixest==0.70.0       # fixed-effects regressions of the panel (notebook 08)
+wildboottest==0.3.2    # wild cluster bootstrap (notebook 04)
+esda==2.10.0           # Moran's I, spatial autocorrelation of residuals (notebook 04)
+libpysal==4.15.1       # nearest-neighbour weights for Moran's I (notebook 04)
+doubleml==0.11.4       # double machine learning (notebook 05)
 geopandas==1.2.0       # only for code/01_geo_features.py (reads the swisstopo maps)
 shapely==2.2.0
 pyogrio==0.13.0
