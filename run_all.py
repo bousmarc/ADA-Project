@@ -10,7 +10,8 @@ Steps (in this order, because each one reads what the previous ones saved):
   1. code/01_geo_features.py      coordinates and distance to the border (~2 min, needs geopandas)
   2. code/02_clean_merge.py       the 2022 commune dataset (< 1 min)
      code/02b_later_years.py      outcomes of 2023-2024 for the out-of-time test (seconds)
-  3. notebooks/03 to 07, and 05b  each notebook is run from top to bottom in a fresh
+     code/02c_panel.py            the commune x year panel 2011-2022 (seconds)
+  3. notebooks/03 to 08, 04b, 04c, 05b: each notebook is run from top to bottom in a fresh
                                   kernel, and saved with its outputs (tables and figures
                                   also go to Results/<stage>/)
 
@@ -34,10 +35,13 @@ RUN_NOTEBOOKS = True    # step 3
 NOTEBOOKS = [           # remove a notebook from this list to skip it
     "03_descriptive_stats.ipynb",
     "04_regression_ols.ipynb",
+    "04b_specification_curve.ipynb",  # every reasonable combination of choices for the two key results
+    "04c_missing_sa.ipynb",            # which communes hide SA (classification) and a reweighted SA result
     "05_machine_learning.ipynb",       # about 10 minutes
     "05b_tuning.ipynb",                # about 15 minutes: every tuning option tried (documents notebook 05's choices)
     "06_clustering.ipynb",
     "07_later_years.ipynb",
+    "08_panel.ipynb",                  # panel 2011-2022 (fixed effects with pyfixest)
 ]
 
 
@@ -65,6 +69,7 @@ if RUN_GEO:
 if RUN_DATA:
     run_script("code/02_clean_merge.py")
     run_script("code/02b_later_years.py")
+    run_script("code/02c_panel.py")
 if RUN_NOTEBOOKS:
     for name in NOTEBOOKS:
         step_start = time.perf_counter()

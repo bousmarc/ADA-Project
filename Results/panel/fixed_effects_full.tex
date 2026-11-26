@@ -1,0 +1,50 @@
+\begin{threeparttable}
+\begingroup
+\renewcommand\cellalign{t}
+\renewcommand\arraystretch{1}
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}l>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\toprule
+ & \multicolumn{3}{c}{log_tax} & \multicolumn{3}{c}{sa_rate} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+ & (1) & (2) & (3) & (4) & (5) & (6) \\
+\midrule
+\addlinespace[1ex]
+foreign_share & \makecell{-0.004** \\ (0.002)} & \makecell{-0.005*** \\ (0.001)} & \makecell{-0.003* \\ (0.002)} & \makecell{0.003 \\ (0.007)} & \makecell{0.019*** \\ (0.007)} & \makecell{0.014* \\ (0.007)} \\
+\addlinespace[0.5ex]
+\addlinespace[0.5ex]
+log_population &  &  & \makecell{-0.126** \\ (0.064)} &  &  & \makecell{0.007 \\ (0.267)} \\
+\addlinespace[0.5ex]
+\addlinespace[0.5ex]
+share_under20 &  &  & \makecell{-0.014*** \\ (0.002)} &  &  & \makecell{0.036*** \\ (0.010)} \\
+\addlinespace[0.5ex]
+\addlinespace[0.5ex]
+share_65plus &  &  & \makecell{-0.001 \\ (0.002)} &  &  & \makecell{-0.001 \\ (0.011)} \\
+\addlinespace[0.5ex]
+\addlinespace[0.5ex]
+jobs_per_capita &  &  & \makecell{-0.020 \\ (0.030)} &  &  & \makecell{-0.139 \\ (0.288)} \\
+\addlinespace[0.5ex]
+\midrule
+\addlinespace[1ex]
+canton_year & - & x & x & - & x & x \\
+\addlinespace[0.5ex]
+\addlinespace[0.5ex]
+code & x & x & x & x & x & x \\
+\addlinespace[0.5ex]
+\addlinespace[0.5ex]
+year & x & - & - & x & - & - \\
+\addlinespace[0.5ex]
+\midrule
+\addlinespace[1ex]
+Observations & 25,223 & 25,223 & 25,201 & 19,681 & 19,680 & 19,680 \\
+\addlinespace[0.5ex]
+\addlinespace[0.5ex]
+$R^2$ & 0.954 & 0.958 & 0.958 & 0.904 & 0.912 & 0.912 \\
+\addlinespace[0.5ex]
+\bottomrule
+\end{tabularx}
+\endgroup
+\noindent\begin{minipage}{\linewidth}\smallskip\footnotesize
+Significance levels: * p < 0.1, ** p < 0.05, *** p < 0.01. Format of coefficient cell: Coefficient   (Std. Error)\end{minipage}
+
+\end{threeparttable}
