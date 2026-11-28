@@ -3,8 +3,8 @@
 Dep. Variable:                 hidden   No. Observations:                 2108
 Model:                          Logit   Df Residuals:                     2095
 Method:                           MLE   Df Model:                           12
-Date:                Wed, 25 Nov 2026   Pseudo R-squ.:                  0.4676
-Time:                        18:02:31   Log-Likelihood:                -604.03
+Date:                Fri, 27 Nov 2026   Pseudo R-squ.:                  0.4676
+Time:                        11:49:18   Log-Likelihood:                -604.03
 converged:                       True   LL-Null:                       -1134.6
 Covariance Type:              cluster   LLR p-value:                1.373e-219
 ===========================================================================================

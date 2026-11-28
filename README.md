@@ -11,7 +11,7 @@ pip install -r requirements.txt
 ```
 
 ## Run
-Everything, from the raw data to every table and figure, with one command from the repository folder (about 30 minutes on a laptop; about 15 minutes without notebook 05b, which can be switched off at the top of `run_all.py`):
+Everything, from the raw data to every table and figure, with one command from the repository folder (about 35 minutes on a laptop; about 15 minutes without notebook 05b, which can be switched off at the top of `run_all.py`):
 ```bash
 python run_all.py
 ```
@@ -28,7 +28,7 @@ It runs the steps below in this order; each notebook is run from top to bottom i
 | 4b | `notebooks/04b_specification_curve.ipynb` | specification curve: the two key results under every combination of controls, sample, weights and outcome, in `Results/specification_curve/` | < 1 min |
 | 4c | `notebooks/04c_missing_sa.ipynb` | which communes have a hidden SA rate (logistic regression, random forest, boosting), and the SA result reweighted by inverse probability weighting, in `Results/missing_sa/` | < 1 min |
 | 5 | `notebooks/05_machine_learning.ipynb` | model comparison, figures and LaTeX tables in `Results/ml/` | ~10 min |
-| 5b | `notebooks/05b_tuning.ipynb` | every tuning option tried (number of trees, full grids, narrow vs wide search, canton-fold tuning) in `Results/tuning/` | ~15 min |
+| 5b | `notebooks/05b_tuning.ipynb` | every tuning option tried (number of trees, full grids, narrow vs wide search, canton-fold tuning) in `Results/tuning/` | ~20 min |
 | 6 | `notebooks/06_clustering.ipynb` | PCA, commune types, figures and LaTeX tables in `Results/clustering/` | < 1 min |
 | 7 | `notebooks/07_later_years.ipynb` | out-of-time test of the 2022 results in `Results/out_of_time/` | ~2 min |
 | 8 | `notebooks/08_panel.ipynb` | panel 2011–2022: changes within communes (commune and canton × year fixed effects, pyfixest), long difference, robustness, slopes by commune type and tax split, in `Results/panel/` | < 1 min |

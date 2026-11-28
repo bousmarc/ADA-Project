@@ -3,7 +3,7 @@ run_all.py
 ----------
 Runs the whole project, from the raw data to every table and figure in Results/.
 
-Run from the repository folder:   python run_all.py     (about 30 minutes in total; about 15
+Run from the repository folder:   python run_all.py     (about 35 minutes in total; about 15
                                                          minutes without notebook 05b)
 
 Steps (in this order, because each one reads what the previous ones saved):
@@ -38,7 +38,7 @@ NOTEBOOKS = [           # remove a notebook from this list to skip it
     "04b_specification_curve.ipynb",  # every reasonable combination of choices for the two key results
     "04c_missing_sa.ipynb",            # which communes hide SA (classification) and a reweighted SA result
     "05_machine_learning.ipynb",       # about 10 minutes
-    "05b_tuning.ipynb",                # about 15 minutes: every tuning option tried (documents notebook 05's choices)
+    "05b_tuning.ipynb",                # about 20 minutes: every tuning option tried (documents notebook 05's choices)
     "06_clustering.ipynb",
     "07_later_years.ipynb",
     "08_panel.ipynb",                  # panel 2011-2022 (fixed effects with pyfixest)
